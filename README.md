@@ -20,6 +20,19 @@ Buscá `[COMPLETAR]` en el proyecto. Está en:
 1. **`js/config.js`**: número de WhatsApp, mail, usuario de Instagram y los 3 trabajos.
    Guardá las capturas en `assets/trabajos/` (800 × 500 px, en `.webp` o `.jpg`, de menos de 150 KB).
 
+Los contactos sin completar y los trabajos de ejemplo quedan ocultos automáticamente.
+Podés agregar trabajos al listado cuando tengas el nombre y una captura real.
+
+## Formulario de consultas
+
+El formulario está preparado para Netlify Forms e incluye un campo antispam.
+Para recibir consultas, habilitá la detección de formularios en el panel de Netlify
+y volvé a publicar el sitio. Después comprobá que aparezca el formulario `consulta`
+y hacé un envío de prueba desde la web publicada. Las consultas se revisan en el
+panel de Netlify; configurá ahí las notificaciones si querés recibirlas por mail.
+El envío requiere Netlify Forms: no funciona al abrir el HTML localmente ni en
+otro alojamiento sin configurar un servicio de recepción.
+
 ## Verla en local
 
 - **Rápido:** doble clic en `index.html`.

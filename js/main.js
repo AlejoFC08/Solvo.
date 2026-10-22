@@ -50,11 +50,13 @@
     var numero = config.whatsapp.replace(/\D/g, "");
     var texto = config.whatsappMensaje ? "?text=" + encodeURIComponent(config.whatsappMensaje) : "";
     el.href = "https://wa.me/" + numero + texto;
+    el.hidden = false;
   });
 
   document.querySelectorAll('[data-config="email"]').forEach(function (el) {
     if (!completo(config.email)) return;
     el.href = "mailto:" + config.email;
+    el.hidden = false;
     var etiqueta = el.querySelector("[data-config-text]");
     if (etiqueta) etiqueta.textContent = config.email;
   });
@@ -63,12 +65,14 @@
     if (!completo(config.instagram)) return;
     var usuario = config.instagram.replace(/^@/, "");
     el.href = "https://www.instagram.com/" + usuario + "/";
+    el.hidden = false;
   });
 
   /* ---------- Otros trabajos ---------- */
   var grilla = document.getElementById("trabajos-grilla");
   if (grilla && Array.isArray(config.trabajos)) {
     config.trabajos.forEach(function (t) {
+      if (!t || !completo(t.cliente) || !completo(t.imagen) || t.imagen.indexOf("placeholder") !== -1) return;
       var li = document.createElement("li");
       li.className = "work-card";
 
@@ -106,5 +110,6 @@
       li.appendChild(cuerpo);
       grilla.appendChild(li);
     });
+    if (grilla.children.length) grilla.closest(".works").hidden = false;
   }
 })();

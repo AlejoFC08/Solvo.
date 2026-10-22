@@ -69,12 +69,13 @@
     <section class="hero section--dark" id="inicio" aria-labelledby="hero-titulo">
       <div class="container">
         <p class="eyebrow">Webs · Automatización · Sistemas a medida</p>
-        <h1 id="hero-titulo">Soluciones digitales a medida para tu negocio.</h1>
+        <h1 id="hero-titulo">Una web para recibir consultas. Menos tareas a mano.</h1>
         <p class="lead">Hago páginas web y automatizo las tareas repetitivas que te hacen perder horas, usando las herramientas que ya usás: Google, Excel y mail.</p>
         <div class="actions">
           <a class="btn btn--primary" href="#contacto">Pedí un diagnóstico gratis</a>
           <a class="btn btn--outline" href="#servicios">Ver servicios</a>
         </div>
+        <p class="hero-note">Una charla de 30 minutos para entender qué necesitás y cómo puedo ayudarte.</p>
       </div>
     </section>
 
@@ -119,6 +120,14 @@
             </ul>
           </article>
         </div>
+
+        <aside class="about" aria-labelledby="sobre-titulo">
+          <div>
+            <p class="eyebrow">Sobre Solvo</p>
+            <h3 id="sobre-titulo">Trato directo, desde la primera charla</h3>
+          </div>
+          <p>Solvo es mi emprendimiento de soluciones digitales en Buenos Aires. Trabajo con negocios y equipos que necesitan una web o quieren simplificar su trabajo diario. Charlás conmigo, definimos una propuesta a medida y probamos juntos la solución antes de la entrega.</p>
+        </aside>
       </div>
     </section>
 
@@ -140,7 +149,9 @@
           </article>
         </div>
 
-        <div class="works">
+        <p class="case-outcome"><strong>Todo el proceso, en un mismo lugar:</strong> separar los recibos, enviarlos y consultar las confirmaciones de recepción.</p>
+
+        <div class="works" hidden>
           <h3 class="works__title">Otros trabajos</h3>
           <!-- Las tarjetas se cargan desde js/config.js (sección "trabajos"). -->
           <ul class="works__grid" id="trabajos-grilla"></ul>
@@ -182,20 +193,31 @@
     <!-- 6. Contacto -->
     <section class="section section--dark contact" id="contacto" aria-labelledby="contacto-titulo">
       <div class="container">
-        <h2 id="contacto-titulo">¿Tenés una tarea que te gustaría dejar de hacer a mano?</h2>
-        <p class="lead">Contame qué necesitás y vemos juntos cómo resolverlo.</p>
+        <h2 id="contacto-titulo">¿Necesitás una web o querés simplificar una tarea de tu negocio?</h2>
+        <p class="lead">Contame qué necesitás y vemos juntos cómo resolverlo. El diagnóstico inicial es gratis.</p>
         <div class="actions">
           <!-- El link real de WhatsApp se arma desde js/config.js -->
-          <a class="btn btn--primary" href="https://wa.me/" data-config="whatsapp" target="_blank" rel="noopener">
+          <a class="btn btn--primary" hidden data-config="whatsapp" target="_blank" rel="noopener">
             <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/></svg>
             Escribime por WhatsApp
           </a>
           <!-- El mail real se toma de js/config.js -->
-          <a class="btn btn--outline" href="mailto:" data-config="email">
+          <a class="btn btn--outline" hidden data-config="email">
             <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
-            <span data-config-text>[COMPLETAR] tu mail</span>
+            <span data-config-text>Escribime por mail</span>
           </a>
         </div>
+        <form class="contact-form" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="consulta">
+          <p hidden><label>No completar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <div class="contact-form__row">
+            <label>Tu nombre<input name="nombre" autocomplete="name" required maxlength="120"></label>
+            <label>Tu email<input type="email" name="email" autocomplete="email" required maxlength="254"></label>
+          </div>
+          <label>¿Qué necesitás?<textarea name="mensaje" rows="5" required maxlength="5000" placeholder="Contame sobre tu negocio, la web que imaginás o la tarea que querés simplificar."></textarea></label>
+          <p class="contact-form__note">Usaré estos datos para responder tu consulta.</p>
+          <button class="btn btn--primary" type="submit">Enviar consulta</button>
+        </form>
       </div>
     </section>
   </main>
@@ -205,7 +227,7 @@
     <div class="container footer-inner">
       <p>Solvo. · Soluciones digitales a medida</p>
       <!-- El usuario de Instagram se toma de js/config.js -->
-      <a class="footer-link" href="https://www.instagram.com/" data-config="instagram" target="_blank" rel="noopener">
+      <a class="footer-link" hidden data-config="instagram" target="_blank" rel="noopener">
         <svg class="footer-link__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
         Instagram
       </a>
