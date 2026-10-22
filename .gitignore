@@ -1,0 +1,15 @@
+# Kit de marca original: el sitio solo usa lo copiado en assets/
+Solvo kit/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+
+# Netlify / Vercel
+.netlify/
+.vercel/
+
+# Configuración local de Claude Code
+.claude/

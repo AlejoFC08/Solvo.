@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solvo. · Soluciones digitales a medida</title>
+  <meta name="description" content="Páginas web y automatización para colegios, PyMEs y pequeños negocios. Resuelvo tareas repetitivas con Google Sheets, Excel y mail. Pedí un diagnóstico gratis.">
+  <meta name="theme-color" content="#0C182B">
+  <script>document.documentElement.classList.add("js");</script>
+
+  <!--
+    [COMPLETAR] Cuando tengas el dominio definitivo, reemplazá "https://TU-DOMINIO"
+    en las 3 líneas de abajo (canonical, og:url y og:image) por tu dirección real,
+    por ejemplo "https://solvo.netlify.app" o "https://solvo.com.ar".
+  -->
+  <link rel="canonical" href="https://TU-DOMINIO/">
+  <meta property="og:url" content="https://TU-DOMINIO/">
+  <meta property="og:image" content="https://TU-DOMINIO/assets/og-image.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="Solvo.">
+  <meta property="og:title" content="Solvo. · Soluciones digitales a medida">
+  <meta property="og:description" content="Páginas web y automatización de tareas repetitivas para tu negocio, con las herramientas que ya usás.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo de Solvo. con el slogan Soluciones digitales a medida">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oxanium:wght@600;700&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- 1. Encabezado -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Solvo., ir al inicio">
+        <img src="assets/logo-header.svg" alt="Solvo." width="146" height="37">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Principal">
+        <ul class="nav-list" id="menu">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#casos">Casos</a></li>
+          <li><a href="#como-trabajo">Cómo trabajo</a></li>
+          <li><a class="nav-cta" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- 2. Hero -->
+    <section class="hero section--dark" id="inicio" aria-labelledby="hero-titulo">
+      <div class="container">
+        <p class="eyebrow">Webs · Automatización · Sistemas a medida</p>
+        <h1 id="hero-titulo">Soluciones digitales a medida para tu negocio.</h1>
+        <p class="lead">Hago páginas web y automatizo las tareas repetitivas que te hacen perder horas, usando las herramientas que ya usás: Google, Excel y mail.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="#contacto">Pedí un diagnóstico gratis</a>
+          <a class="btn btn--outline" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Servicios -->
+    <section class="section section--neutral" id="servicios" aria-labelledby="servicios-titulo">
+      <div class="container">
+        <p class="eyebrow">Servicios</p>
+        <h2 id="servicios-titulo">Soluciones que encajan con tu negocio</h2>
+
+        <div class="services">
+          <article class="card">
+            <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <rect x="2.5" y="4" width="19" height="16" rx="2"/>
+              <path d="M2.5 8.5h19"/>
+              <path d="M5.5 6.25h.01M8 6.25h.01"/>
+              <path d="M6 12.5h7M6 15.5h4.5"/>
+            </svg>
+            <h3>Páginas web</h3>
+            <p>Tu negocio en internet: una web clara, rápida y que se ve bien en el celular, pensada para que te contacten.</p>
+            <ul class="check-list">
+              <li>Landing pages y sitios institucionales</li>
+              <li>Botón de WhatsApp y formularios de contacto</li>
+              <li>Diseño adaptado a tu marca</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 7h11"/>
+              <path d="M12 4l3 3-3 3"/>
+              <path d="M20 17H9"/>
+              <path d="M12 14l-3 3 3 3"/>
+              <circle cx="19" cy="7" r="2"/>
+              <circle cx="5" cy="17" r="2"/>
+            </svg>
+            <h3>Automatización y sistemas a medida</h3>
+            <p>Si hay una tarea que hacés a mano todos los meses, probablemente se pueda automatizar. Te armo la solución para tu caso.</p>
+            <ul class="check-list">
+              <li>Envíos automáticos de mails y documentos</li>
+              <li>Planillas inteligentes con Google Sheets y Excel</li>
+              <li>Pequeños sistemas de gestión para tu equipo</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Caso real -->
+    <section class="section section--white" id="casos" aria-labelledby="caso-titulo">
+      <div class="container">
+        <p class="eyebrow">Caso real</p>
+        <h2 id="caso-titulo">Recibos de sueldo para un colegio, en minutos</h2>
+        <p class="section-lead">Al colegio le llegaba un único PDF con los recibos de todo el personal. Había que separarlo y mandarlo uno por uno.</p>
+
+        <div class="compare">
+          <article class="compare__card compare__card--before">
+            <h3>Antes</h3>
+            <p>Separar el PDF a mano, buscar el mail de cada empleado y enviar los recibos de a uno, sin saber quién los había recibido.</p>
+          </article>
+          <article class="compare__card compare__card--after">
+            <h3>Después</h3>
+            <p>Se sube el PDF, el sistema reconoce a cada empleado, separa su recibo y lo envía por mail con un botón de confirmación de recepción.</p>
+          </article>
+        </div>
+
+        <div class="works">
+          <h3 class="works__title">Otros trabajos</h3>
+          <!-- Las tarjetas se cargan desde js/config.js (sección "trabajos"). -->
+          <ul class="works__grid" id="trabajos-grilla"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Cómo trabajo -->
+    <section class="section section--neutral" id="como-trabajo" aria-labelledby="proceso-titulo">
+      <div class="container">
+        <p class="eyebrow">Cómo trabajo</p>
+        <h2 id="proceso-titulo">Simple, de principio a fin</h2>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">01</span>
+            <h3>Diagnóstico gratis</h3>
+            <p>Charlamos 30 minutos sobre qué tareas te quitan más tiempo.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h3>Propuesta</h3>
+            <p>Te muestro qué se puede hacer, en cuánto tiempo y a qué precio.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h3>Desarrollo</h3>
+            <p>Lo construyo y lo probamos juntos hasta que funcione como necesitás.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">04</span>
+            <h3>Soporte</h3>
+            <p>Te acompaño después de la entrega con ajustes y mantenimiento.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Contacto -->
+    <section class="section section--dark contact" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="container">
+        <h2 id="contacto-titulo">¿Tenés una tarea que te gustaría dejar de hacer a mano?</h2>
+        <p class="lead">Contame qué necesitás y vemos juntos cómo resolverlo.</p>
+        <div class="actions">
+          <!-- El link real de WhatsApp se arma desde js/config.js -->
+          <a class="btn btn--primary" href="https://wa.me/" data-config="whatsapp" target="_blank" rel="noopener">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/></svg>
+            Escribime por WhatsApp
+          </a>
+          <!-- El mail real se toma de js/config.js -->
+          <a class="btn btn--outline" href="mailto:" data-config="email">
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+            <span data-config-text>[COMPLETAR] tu mail</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Solvo. · Soluciones digitales a medida</p>
+      <!-- El usuario de Instagram se toma de js/config.js -->
+      <a class="footer-link" href="https://www.instagram.com/" data-config="instagram" target="_blank" rel="noopener">
+        <svg class="footer-link__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+        Instagram
+      </a>
+      <p>Buenos Aires, Argentina</p>
+    </div>
+  </footer>
+</body>
+</html>
