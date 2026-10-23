@@ -35,8 +35,10 @@
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/premium.css">
+  <link rel="stylesheet" href="css/scroll.css">
   <script src="js/config.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/scroll.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -179,6 +181,10 @@
       </div>
     </section>
 
+    <div class="motion-band" aria-hidden="true">
+      <div class="motion-band__track">Menos tareas. <span>Más posibilidades.</span> Menos tareas. <span>Más posibilidades.</span></div>
+    </div>
+
     <!-- 3. Servicios -->
     <section class="section section--neutral" id="servicios" aria-labelledby="servicios-titulo">
       <div class="container">
@@ -239,6 +245,9 @@
         <p class="section-lead" data-reveal style="--d: 2">Al colegio le llegaba un único PDF con los recibos de todo el personal. Había que separarlo y mandarlo uno por uno.</p>
 
         <!-- Animación del proceso automatizado (se activa al llegar a la vista) -->
+        <div class="scroll-scene">
+        <div class="scroll-scene__sticky">
+        <p class="scroll-scene__label">Del archivo a la confirmación <span aria-hidden="true">↓ Seguí bajando</span></p>
         <ol class="flow" data-reveal="flow" aria-label="Cómo funciona el sistema">
           <li class="flow__step" style="--i: 0">
             <span class="flow__icon" aria-hidden="true">
@@ -268,6 +277,9 @@
             <p><strong>Confirmación</strong> de recepción de cada recibo</p>
           </li>
         </ol>
+        <div class="scene-progress" aria-hidden="true"><span></span></div>
+        </div>
+        </div>
 
         <div class="compare">
           <article class="compare__card compare__card--before" data-reveal="left">

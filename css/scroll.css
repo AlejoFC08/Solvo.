@@ -1,0 +1,32 @@
+/* Scroll nativo: el movimiento acompaña la lectura, sin capturar rueda ni gestos. */
+.motion-band { overflow:hidden; padding:32px 0; background:#edf2fb; border-bottom:1px solid #dde3ee; }
+.motion-band__track { width:max-content; font-size:clamp(2.4rem,6vw,6rem); font-weight:600; letter-spacing:-.065em; line-height:1.15; color:#102344; translate:var(--band-shift,0px) 0; }
+.motion-band__track span { color:#5273ab; margin-inline:.22em .55em; }
+.scroll-scene__label { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin:32px 0 0; color:#45506a; font-size:.75rem; letter-spacing:.03em; }
+.scroll-scene__label span { display:none; }
+.scene-progress { display:none; }
+.scroll-fx .hero__content { translate:0 var(--hero-text-y,0px); }
+.scroll-fx .hero__visual { translate:0 var(--hero-art-y,0px); rotate:var(--hero-art-angle,0deg); }
+.scroll-fx .contact__mark { translate:0 var(--mark-y,0px); rotate:var(--mark-angle,0deg); }
+@media(min-width:1024px) and (prefers-reduced-motion:no-preference) {
+  .scroll-fx .services .card { translate:0 var(--card-y,0px); }
+  .scroll-fx .scroll-scene { position:relative; height:155vh; min-height:850px; margin-block:40px; }
+  .scroll-fx .scroll-scene__sticky { position:sticky; top:28vh; padding:28px 32px 32px; border:1px solid #dde3ee; border-radius:28px; background:#f6f8fc; box-shadow:0 24px 70px #1023440a; }
+  .scroll-fx .scroll-scene__label { margin:0; }
+  .scroll-fx .scroll-scene__label span { display:inline; color:#5273ab; }
+  .scroll-fx .flow { padding:40px 0 28px; margin:0; background:none; overflow:visible; opacity:1; transform:none; }
+  .scroll-fx .flow .flow__icon { background:white; color:#5273ab; border-color:#dde3ee; box-shadow:none; transform:scale(.94); transition:background-color .35s,color .35s,transform .35s,box-shadow .35s; transition-delay:0s; }
+  .scroll-fx .flow .flow__step.is-current .flow__icon { background:#083dbe; color:white; border-color:#083dbe; transform:scale(1.1); box-shadow:0 0 0 9px #083dbe0c,0 12px 24px #083dbe20; }
+  .scroll-fx .flow .flow__step.is-complete .flow__icon { background:#102344; color:white; border-color:#102344; transform:scale(1); }
+  .scroll-fx .flow .flow__link::before { transform:scaleX(var(--link-progress,0)); transition:none; }
+  .scroll-fx .flow__packet { display:none; }
+  .scroll-fx .scene-progress { display:block; height:2px; background:#dde3ee; overflow:hidden; }
+  .scene-progress span { display:block; height:100%; background:#083dbe; transform:scaleX(var(--scene-progress,0)); transform-origin:left; }
+}
+.motion-paused .hero__content,.motion-paused .hero__visual,.motion-paused .services .card,.motion-paused .contact__mark { translate:none; rotate:none; }
+.motion-paused .motion-band__track { translate:none; }
+.motion-paused.scroll-fx .scroll-scene { height:auto; min-height:0; }
+.motion-paused.scroll-fx .scroll-scene__sticky { position:relative; top:auto; }
+.motion-paused.scroll-fx .flow .flow__icon { background:#083dbe; color:#fff; transform:none; }
+.motion-paused .scroll-scene__label span,.motion-paused .scene-progress { display:none; }
+@media(prefers-reduced-motion:reduce) { .scroll-fx .hero__content,.scroll-fx .hero__visual,.scroll-fx .services .card,.scroll-fx .contact__mark,.motion-band__track { translate:none; rotate:none; } }
