@@ -112,4 +112,118 @@
     });
     if (grilla.children.length) grilla.closest(".works").hidden = false;
   }
+
+  /* ---------- Animaciones ---------- */
+  var raiz = document.documentElement;
+  var reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hayObserver = "IntersectionObserver" in window;
+
+  // Aparición de bloques al llegar a la vista
+  var animables = document.querySelectorAll("[data-reveal]");
+
+  function mostrar(el) {
+    el.classList.add("is-visible");
+    // Terminada la entrada, quitamos la demora para que el hover responda al instante.
+    setTimeout(function () {
+      el.classList.add("is-done");
+    }, 1400);
+  }
+
+  if (reducirMovimiento || !hayObserver) {
+    animables.forEach(mostrar);
+  } else {
+    raiz.classList.add("reveal-ready");
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) return;
+        mostrar(entrada.target);
+        observador.unobserve(entrada.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
+    animables.forEach(function (el) {
+      observador.observe(el);
+    });
+  }
+
+  // Encabezado: fondo al bajar y barra de progreso de lectura
+  var header = document.querySelector(".site-header");
+  var scrollPendiente = false;
+
+  function actualizarHeader() {
+    scrollPendiente = false;
+    var y = window.scrollY;
+    var max = raiz.scrollHeight - window.innerHeight;
+    header.classList.toggle("is-scrolled", y > 8);
+    header.style.setProperty("--progress", max > 0 ? Math.min(y / max, 1).toFixed(4) : "0");
+  }
+
+  if (header) {
+    window.addEventListener("scroll", function () {
+      if (scrollPendiente) return;
+      scrollPendiente = true;
+      window.requestAnimationFrame(actualizarHeader);
+    }, { passive: true });
+    actualizarHeader();
+  }
+
+  // Menú: marca la sección que se está viendo
+  if (hayObserver) {
+    var enlacesMenu = {};
+    document.querySelectorAll('.nav-list a[href^="#"]').forEach(function (a) {
+      enlacesMenu[a.getAttribute("href").slice(1)] = a;
+    });
+
+    var espia = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) return;
+        Object.keys(enlacesMenu).forEach(function (id) {
+          enlacesMenu[id].classList.remove("is-active");
+          enlacesMenu[id].removeAttribute("aria-current");
+        });
+        var activo = enlacesMenu[entrada.target.id];
+        if (activo) {
+          activo.classList.add("is-active");
+          activo.setAttribute("aria-current", "true");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+
+    document.querySelectorAll("main > section[id]").forEach(function (seccion) {
+      espia.observe(seccion);
+    });
+  }
+
+  // Hero: inclinación sutil de la ilustración con el mouse
+  var hero = document.querySelector(".hero");
+  var visual = document.querySelector(".hero__visual");
+  var arte = document.querySelector(".hero-art");
+
+  if (hero && visual && !reducirMovimiento && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      visual.style.setProperty("--px", ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
+      visual.style.setProperty("--py", ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
+    });
+    hero.addEventListener("pointerleave", function () {
+      visual.style.setProperty("--px", "0");
+      visual.style.setProperty("--py", "0");
+    });
+  }
+
+  // Hero: pausa las animaciones continuas cuando no está en pantalla
+  if (arte && arte.pauseAnimations) {
+    if (reducirMovimiento) {
+      arte.pauseAnimations();
+    } else if (hayObserver) {
+      new IntersectionObserver(function (entradas) {
+        var visible = entradas[0].isIntersecting;
+        hero.classList.toggle("is-paused", !visible);
+        if (visible) {
+          arte.unpauseAnimations();
+        } else {
+          arte.pauseAnimations();
+        }
+      }).observe(hero);
+    }
+  }
 })();

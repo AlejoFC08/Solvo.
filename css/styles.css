@@ -758,6 +758,706 @@ h2 {
   }
 }
 
+/* ==========================================================
+   Efectos y animaciones
+   Todo usa transform y opacity (fluido en celulares) y se
+   desactiva si el sistema pide reducir el movimiento.
+   ========================================================== */
+:root {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- Encabezado al hacer scroll ---------- */
+.site-header {
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.site-header.is-scrolled {
+  background: rgba(12, 24, 43, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+}
+
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--azul);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--progress, 0));
+}
+
+.js .nav-list a.is-active:not(.nav-cta) {
+  font-weight: 600;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s var(--ease);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn__arrow {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s var(--ease);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grilla de puntos de fondo (sin degradados) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero__grid {
+  position: relative;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero h1 .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.hero h1 .line > span {
+  display: block;
+}
+
+.hero__visual {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  transform: perspective(900px) rotateX(calc(var(--py, 0) * -5deg)) rotateY(calc(var(--px, 0) * 7deg));
+  transition: transform 0.6s var(--ease);
+}
+
+.hero-art {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: var(--font-texto);
+}
+
+.hero-art__ring {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.hero-art__ring--dash {
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-dasharray: 2 10;
+  transform-origin: 240px 220px;
+}
+
+.hero-art__link {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 1.5;
+  stroke-dasharray: 220;
+}
+
+.hero-art__packets circle {
+  fill: var(--blanco);
+}
+
+.hero-art__tile rect {
+  fill: var(--blanco);
+}
+
+.hero-art__piece {
+  fill: var(--azul);
+}
+
+.hero-art__chip rect {
+  fill: var(--marino);
+  stroke: rgba(255, 255, 255, 0.22);
+}
+
+.hero-art__chip circle {
+  fill: var(--blanco);
+}
+
+.hero-art__chip text {
+  fill: var(--blanco);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Entrada del hero (solo con JS activo, sin depender de main.js) */
+.js .hero [data-hero] {
+  animation: rise 0.9s var(--ease) both;
+  animation-delay: calc(var(--d, 0) * 110ms + 150ms);
+}
+
+.js .hero .line > [data-hero] {
+  animation-name: line-up;
+}
+
+.js .hero-art__ring {
+  animation: fade-in 1.2s var(--ease) 0.1s both;
+}
+
+.js .hero-art__ring--dash {
+  animation: fade-in 1.2s var(--ease) 0.1s both, spin 80s linear 1.3s infinite;
+}
+
+.js .hero-art__tile {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tile-in 0.9s var(--ease-back) 0.2s both, tile-click 0.5s var(--ease) 1.45s;
+}
+
+.js .hero-art__piece--a {
+  animation: piece-a 1s var(--ease) 0.5s both;
+}
+
+.js .hero-art__piece--b {
+  animation: piece-b 1s var(--ease) 0.5s both;
+}
+
+.js .hero-art__link {
+  animation: draw 1s var(--ease) both;
+  animation-delay: calc(1.4s + var(--i) * 0.12s);
+}
+
+.js .hero-art__chip {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: chip-in 0.7s var(--ease-back) both, float 6s ease-in-out infinite;
+  animation-delay: calc(1.55s + var(--i) * 0.12s), calc(2.6s + var(--i) * 0.8s);
+}
+
+/* Pausa las animaciones infinitas cuando el hero no se ve */
+.hero.is-paused * {
+  animation-play-state: paused !important;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tile-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-8deg);
+  }
+}
+
+@keyframes tile-click {
+  40% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes piece-a {
+  from {
+    opacity: 0;
+    transform: translate(-80px, -80px);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes piece-b {
+  from {
+    opacity: 0;
+    transform: translate(80px, 80px);
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 220;
+  }
+}
+
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ---------- Franja de confianza ---------- */
+.trust {
+  background: var(--blanco);
+  border-bottom: 1px solid var(--borde);
+}
+
+.trust__list {
+  list-style: none;
+  display: grid;
+  gap: 20px;
+  padding: 28px 0;
+}
+
+.trust__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.trust__icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--neutro);
+  fill: none;
+  stroke: var(--azul);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trust__item strong {
+  display: block;
+  font-family: var(--font-titulos);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.3;
+}
+
+.trust__item span {
+  display: block;
+  margin-top: 2px;
+  color: var(--texto-suave);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/* ---------- Aparición al hacer scroll ---------- */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  transition-delay: calc(var(--d, 0) * 100ms);
+}
+
+.reveal-ready [data-reveal="left"] {
+  transform: translateX(-36px);
+}
+
+.reveal-ready [data-reveal="right"] {
+  transform: translateX(36px);
+}
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Terminada la entrada, el hover responde sin demora */
+.reveal-ready [data-reveal].is-done {
+  transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
+}
+
+/* Bloques con animación propia: el contenedor no se desplaza */
+.reveal-ready [data-reveal="steps"],
+.reveal-ready [data-reveal="mark"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Tarjetas de servicios ---------- */
+.card {
+  transition: transform 0.35s var(--ease), border-color 0.35s, box-shadow 0.35s;
+}
+
+.services .card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(8, 61, 190, 0.35);
+  box-shadow: 0 18px 40px -26px rgba(12, 24, 43, 0.35);
+}
+
+.reveal-ready .card__icon > * {
+  stroke-dasharray: 64;
+  stroke-dashoffset: 64;
+  transition: stroke-dashoffset 1.4s var(--ease);
+  transition-delay: calc(var(--d, 0) * 100ms + 350ms);
+}
+
+.reveal-ready .card.is-visible .card__icon > * {
+  stroke-dashoffset: 0;
+}
+
+/* ---------- Animación del caso real ---------- */
+.flow {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+  margin: 36px 0 20px;
+  padding: 28px 24px;
+  background: var(--neutro);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.flow__step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.flow__step p {
+  margin: 0;
+  padding-top: 4px;
+  color: var(--texto-suave);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.flow__step strong {
+  display: block;
+  color: var(--marino);
+  font-family: var(--font-titulos);
+  font-weight: 600;
+  font-size: 1.0625rem;
+}
+
+.flow__icon {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--azul);
+  border: 1px solid var(--azul);
+  color: var(--blanco);
+  transition: background-color 0.5s var(--ease), color 0.5s var(--ease), border-color 0.5s var(--ease), transform 0.5s var(--ease-back);
+}
+
+.flow__icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Conector vertical (celular) */
+.flow__link {
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  bottom: -24px;
+  width: 2px;
+  background: var(--borde);
+}
+
+.flow__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--azul);
+  transform-origin: 50% 0;
+  transition: transform 0.5s var(--ease);
+}
+
+.flow__packet {
+  position: absolute;
+  left: -3px;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blanco);
+  border: 2px solid var(--azul);
+  opacity: 0;
+}
+
+/* Estado inicial antes de entrar en pantalla */
+.reveal-ready .flow:not(.is-visible) .flow__icon {
+  background: var(--blanco);
+  border-color: var(--borde);
+  color: var(--azul);
+  transform: scale(0.92);
+}
+
+.reveal-ready .flow:not(.is-visible) .flow__link::before {
+  transform: scale(1, 0);
+}
+
+/* Secuencia: cada paso se enciende y "pasa" al siguiente */
+.flow.is-visible .flow__icon {
+  transition-delay: calc(var(--i) * 0.45s + 0.15s);
+}
+
+.flow.is-visible .flow__link::before {
+  transition-delay: calc(var(--i) * 0.45s + 0.4s);
+}
+
+.flow.is-visible .flow__packet {
+  animation: packet-y 1.8s var(--ease) infinite;
+  animation-delay: calc(2.2s + var(--i) * 0.45s);
+}
+
+@keyframes packet-y {
+  0% {
+    top: -4px;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 4px);
+    opacity: 0;
+  }
+}
+
+@keyframes packet-x {
+  0% {
+    left: -4px;
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 4px);
+    opacity: 0;
+  }
+}
+
+/* ---------- Pasos de "Cómo trabajo" ---------- */
+.step {
+  position: relative;
+  overflow: hidden;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--azul);
+  transform-origin: 0 50%;
+  transition: transform 0.9s var(--ease);
+}
+
+.reveal-ready .steps .step {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  transition-delay: calc(var(--i) * 0.12s);
+}
+
+.reveal-ready .steps:not(.is-visible) .step::before {
+  transform: scaleX(0);
+}
+
+.reveal-ready .steps.is-visible .step {
+  opacity: 1;
+  transform: none;
+}
+
+.steps.is-visible .step::before {
+  transition-delay: calc(var(--i) * 0.3s + 0.4s);
+}
+
+/* ---------- Contacto: contorno de la S ---------- */
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact__mark {
+  position: absolute;
+  right: -70px;
+  bottom: -50px;
+  width: 260px;
+  height: auto;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+.contact__piece {
+  transition: transform 1.6s var(--ease), opacity 1.6s var(--ease);
+}
+
+.reveal-ready .contact__mark:not(.is-visible) .contact__piece--a {
+  opacity: 0;
+  transform: translate(-40px, -40px);
+}
+
+.reveal-ready .contact__mark:not(.is-visible) .contact__piece--b {
+  opacity: 0;
+  transform: translate(40px, 40px);
+}
+
+/* ---------- Animaciones: tablet y escritorio ---------- */
+@media (min-width: 600px) {
+  .trust__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .js .nav-list a:not(.nav-cta) {
+    position: relative;
+  }
+
+  .js .nav-list a:not(.nav-cta)::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 4px;
+    height: 2px;
+    background: var(--blanco);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: transform 0.35s var(--ease);
+  }
+
+  .js .nav-list a:not(.nav-cta):hover::after,
+  .js .nav-list a.is-active:not(.nav-cta)::after {
+    transform: scaleX(1);
+  }
+
+  .flow {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 32px;
+  }
+
+  .flow__step {
+    flex-direction: column;
+  }
+
+  .flow__step p {
+    padding-top: 0;
+  }
+
+  /* Conector horizontal */
+  .flow__link {
+    left: 68px;
+    right: -12px;
+    top: 27px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .flow__link::before {
+    transform-origin: 0 50%;
+  }
+
+  .reveal-ready .flow:not(.is-visible) .flow__link::before {
+    transform: scale(0, 1);
+  }
+
+  .flow__packet {
+    left: 0;
+    top: -3px;
+  }
+
+  .flow.is-visible .flow__packet {
+    animation-name: packet-x;
+  }
+
+  .contact__mark {
+    right: 4%;
+    bottom: -40px;
+    width: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+  }
+
+  .hero__visual {
+    max-width: none;
+  }
+
+  .trust__list {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 36px 0;
+  }
+}
+
 /* ---------- Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -768,5 +1468,15 @@ h2 {
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
+  }
+
+  .hero__visual {
+    transform: none;
+  }
+
+  .hero-art__packets,
+  .flow__packet {
+    display: none;
   }
 }

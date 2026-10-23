@@ -62,31 +62,129 @@
         </ul>
       </nav>
     </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
   </header>
 
   <main id="contenido">
     <!-- 2. Hero -->
     <section class="hero section--dark" id="inicio" aria-labelledby="hero-titulo">
-      <div class="container">
-        <p class="eyebrow">Webs · Automatización · Sistemas a medida</p>
-        <h1 id="hero-titulo">Una web para recibir consultas. Menos tareas a mano.</h1>
-        <p class="lead">Hago páginas web y automatizo las tareas repetitivas que te hacen perder horas, usando las herramientas que ya usás: Google, Excel y mail.</p>
-        <div class="actions">
-          <a class="btn btn--primary" href="#contacto">Pedí un diagnóstico gratis</a>
-          <a class="btn btn--outline" href="#servicios">Ver servicios</a>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow" data-hero style="--d: 0">Webs · Automatización · Sistemas a medida</p>
+          <h1 id="hero-titulo">
+            <span class="line"><span data-hero style="--d: 1">Una web para recibir consultas.</span></span>
+            <span class="line"><span data-hero style="--d: 2">Menos tareas a mano.</span></span>
+          </h1>
+          <p class="lead" data-hero style="--d: 3">Hago páginas web y automatizo las tareas repetitivas que te hacen perder horas, usando las herramientas que ya usás: Google, Excel y mail.</p>
+          <div class="actions" data-hero style="--d: 4">
+            <a class="btn btn--primary" href="#contacto">
+              Pedí un diagnóstico gratis
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#servicios">Ver servicios</a>
+          </div>
+          <p class="hero-note" data-hero style="--d: 5">Una charla de 30 minutos para entender qué necesitás y cómo puedo ayudarte.</p>
         </div>
-        <p class="hero-note">Una charla de 30 minutos para entender qué necesitás y cómo puedo ayudarte.</p>
+
+        <!-- Ilustración: las dos piezas de la S encajan y conectan tus herramientas -->
+        <div class="hero__visual" aria-hidden="true">
+          <svg class="hero-art" viewBox="0 0 480 420" focusable="false">
+            <circle class="hero-art__ring hero-art__ring--outer" cx="240" cy="220" r="190"/>
+            <circle class="hero-art__ring hero-art__ring--dash" cx="240" cy="220" r="138"/>
+
+            <g class="hero-art__links">
+              <path id="link-1" class="hero-art__link" style="--i: 0" d="M95 84 C95 140 110 175 140 180"/>
+              <path id="link-2" class="hero-art__link" style="--i: 1" d="M385 104 C385 150 370 175 340 180"/>
+              <path id="link-3" class="hero-art__link" style="--i: 2" d="M90 330 C90 290 110 262 140 260"/>
+              <path id="link-4" class="hero-art__link" style="--i: 3" d="M380 350 C380 300 370 262 340 260"/>
+            </g>
+
+            <g class="hero-art__packets">
+              <circle r="4" opacity="0"><set attributeName="opacity" to="1" begin="2.4s"/><animateMotion dur="2.8s" begin="2.4s" repeatCount="indefinite"><mpath href="#link-1"/></animateMotion></circle>
+              <circle r="4" opacity="0"><set attributeName="opacity" to="1" begin="3.1s"/><animateMotion dur="2.8s" begin="3.1s" repeatCount="indefinite"><mpath href="#link-2"/></animateMotion></circle>
+              <circle r="4" opacity="0"><set attributeName="opacity" to="1" begin="3.8s"/><animateMotion dur="2.8s" begin="3.8s" repeatCount="indefinite"><mpath href="#link-3"/></animateMotion></circle>
+              <circle r="4" opacity="0"><set attributeName="opacity" to="1" begin="4.5s"/><animateMotion dur="2.8s" begin="4.5s" repeatCount="indefinite"><mpath href="#link-4"/></animateMotion></circle>
+            </g>
+
+            <g class="hero-art__tile">
+              <rect x="140" y="120" width="200" height="200" rx="40"/>
+              <g transform="translate(167 146) scale(0.6)">
+                <path class="hero-art__piece hero-art__piece--a" d="M88 2H234Q242 2 240 10Q238 27 225 40L202 60Q190 69 173 69H86Q68 69 65 85Q62 96 72 106L124 157Q129 165 120 165H66Q48 165 36 153L15 132Q3 120 3 104V84Q3 65 17 51L58 11Q70 2 88 2Z"/>
+                <path class="hero-art__piece hero-art__piece--b" d="M110 87H164Q178 87 188 102L214 125Q225 137 225 153V170Q225 186 213 198L176 235Q166 245 146 245H6Q0 245 0 239Q0 216 16 200Q33 184 53 184H142Q161 184 163 171Q164 161 155 152L103 99Q97 93 103 89Q105 87 110 87Z"/>
+              </g>
+            </g>
+
+            <g class="hero-art__chips">
+              <g class="hero-art__chip" style="--i: 0">
+                <rect x="20" y="40" width="150" height="44" rx="12"/>
+                <circle cx="42" cy="62" r="5"/>
+                <text x="56" y="67">Google Sheets</text>
+              </g>
+              <g class="hero-art__chip" style="--i: 1">
+                <rect x="330" y="60" width="110" height="44" rx="12"/>
+                <circle cx="352" cy="82" r="5"/>
+                <text x="366" y="87">Excel</text>
+              </g>
+              <g class="hero-art__chip" style="--i: 2">
+                <rect x="40" y="330" width="100" height="44" rx="12"/>
+                <circle cx="62" cy="352" r="5"/>
+                <text x="76" y="357">Mail</text>
+              </g>
+              <g class="hero-art__chip" style="--i: 3">
+                <rect x="320" y="350" width="120" height="44" rx="12"/>
+                <circle cx="342" cy="372" r="5"/>
+                <text x="356" y="377">Tu web</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja de confianza -->
+    <section class="trust" aria-label="Qué podés esperar">
+      <div class="container">
+        <ul class="trust__list">
+          <li class="trust__item" data-reveal style="--d: 0">
+            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+            <div>
+              <strong>Diagnóstico gratis</strong>
+              <span>30 minutos para entender qué necesitás.</span>
+            </div>
+          </li>
+          <li class="trust__item" data-reveal style="--d: 1">
+            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+            <div>
+              <strong>Trato directo</strong>
+              <span>Hablás conmigo desde la primera charla.</span>
+            </div>
+          </li>
+          <li class="trust__item" data-reveal style="--d: 2">
+            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M3.5 14.5h17M9.5 4v16"/></svg>
+            <div>
+              <strong>Con lo que ya usás</strong>
+              <span>Google, Excel y mail, sin cambiar de herramientas.</span>
+            </div>
+          </li>
+          <li class="trust__item" data-reveal style="--d: 3">
+            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            <div>
+              <strong>Probado y con soporte</strong>
+              <span>Lo probamos juntos y te acompaño después.</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
     <!-- 3. Servicios -->
     <section class="section section--neutral" id="servicios" aria-labelledby="servicios-titulo">
       <div class="container">
-        <p class="eyebrow">Servicios</p>
-        <h2 id="servicios-titulo">Soluciones que encajan con tu negocio</h2>
+        <p class="eyebrow" data-reveal>Servicios</p>
+        <h2 id="servicios-titulo" data-reveal style="--d: 1">Soluciones que encajan con tu negocio</h2>
 
         <div class="services">
-          <article class="card">
+          <article class="card" data-reveal style="--d: 0">
             <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <rect x="2.5" y="4" width="19" height="16" rx="2"/>
               <path d="M2.5 8.5h19"/>
@@ -102,7 +200,7 @@
             </ul>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal style="--d: 2">
             <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path d="M4 7h11"/>
               <path d="M12 4l3 3-3 3"/>
@@ -121,7 +219,7 @@
           </article>
         </div>
 
-        <aside class="about" aria-labelledby="sobre-titulo">
+        <aside class="about" aria-labelledby="sobre-titulo" data-reveal>
           <div>
             <p class="eyebrow">Sobre Solvo</p>
             <h3 id="sobre-titulo">Trato directo, desde la primera charla</h3>
@@ -134,22 +232,53 @@
     <!-- 4. Caso real -->
     <section class="section section--white" id="casos" aria-labelledby="caso-titulo">
       <div class="container">
-        <p class="eyebrow">Caso real</p>
-        <h2 id="caso-titulo">Recibos de sueldo para un colegio, en minutos</h2>
-        <p class="section-lead">Al colegio le llegaba un único PDF con los recibos de todo el personal. Había que separarlo y mandarlo uno por uno.</p>
+        <p class="eyebrow" data-reveal>Caso real</p>
+        <h2 id="caso-titulo" data-reveal style="--d: 1">Recibos de sueldo para un colegio, en minutos</h2>
+        <p class="section-lead" data-reveal style="--d: 2">Al colegio le llegaba un único PDF con los recibos de todo el personal. Había que separarlo y mandarlo uno por uno.</p>
+
+        <!-- Animación del proceso automatizado (se activa al llegar a la vista) -->
+        <ol class="flow" data-reveal="flow" aria-label="Cómo funciona el sistema">
+          <li class="flow__step" style="--i: 0">
+            <span class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15h6M9 18h4"/></svg>
+            </span>
+            <p><strong>Un solo PDF</strong> con los recibos de todo el personal</p>
+            <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
+          </li>
+          <li class="flow__step" style="--i: 1">
+            <span class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 6h7v9H4zM13 9h7v9h-7z"/><path d="M6.5 9.5h2M6.5 12h2M15.5 12.5h2M15.5 15h2"/></svg>
+            </span>
+            <p><strong>Se separa</strong> un recibo para cada empleado</p>
+            <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
+          </li>
+          <li class="flow__step" style="--i: 2">
+            <span class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+            </span>
+            <p><strong>Se envía por mail</strong> a cada persona</p>
+            <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
+          </li>
+          <li class="flow__step" style="--i: 3">
+            <span class="flow__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg>
+            </span>
+            <p><strong>Confirmación</strong> de recepción de cada recibo</p>
+          </li>
+        </ol>
 
         <div class="compare">
-          <article class="compare__card compare__card--before">
+          <article class="compare__card compare__card--before" data-reveal="left">
             <h3>Antes</h3>
             <p>Separar el PDF a mano, buscar el mail de cada empleado y enviar los recibos de a uno, sin saber quién los había recibido.</p>
           </article>
-          <article class="compare__card compare__card--after">
+          <article class="compare__card compare__card--after" data-reveal="right" style="--d: 1">
             <h3>Después</h3>
             <p>Se sube el PDF, el sistema reconoce a cada empleado, separa su recibo y lo envía por mail con un botón de confirmación de recepción.</p>
           </article>
         </div>
 
-        <p class="case-outcome"><strong>Todo el proceso, en un mismo lugar:</strong> separar los recibos, enviarlos y consultar las confirmaciones de recepción.</p>
+        <p class="case-outcome" data-reveal><strong>Todo el proceso, en un mismo lugar:</strong> separar los recibos, enviarlos y consultar las confirmaciones de recepción.</p>
 
         <div class="works" hidden>
           <h3 class="works__title">Otros trabajos</h3>
@@ -162,26 +291,26 @@
     <!-- 5. Cómo trabajo -->
     <section class="section section--neutral" id="como-trabajo" aria-labelledby="proceso-titulo">
       <div class="container">
-        <p class="eyebrow">Cómo trabajo</p>
-        <h2 id="proceso-titulo">Simple, de principio a fin</h2>
+        <p class="eyebrow" data-reveal>Cómo trabajo</p>
+        <h2 id="proceso-titulo" data-reveal style="--d: 1">Simple, de principio a fin</h2>
 
-        <ol class="steps">
-          <li class="step">
+        <ol class="steps" data-reveal="steps">
+          <li class="step" style="--i: 0">
             <span class="step__num" aria-hidden="true">01</span>
             <h3>Diagnóstico gratis</h3>
             <p>Charlamos 30 minutos sobre qué tareas te quitan más tiempo.</p>
           </li>
-          <li class="step">
+          <li class="step" style="--i: 1">
             <span class="step__num" aria-hidden="true">02</span>
             <h3>Propuesta</h3>
             <p>Te muestro qué se puede hacer, en cuánto tiempo y a qué precio.</p>
           </li>
-          <li class="step">
+          <li class="step" style="--i: 2">
             <span class="step__num" aria-hidden="true">03</span>
             <h3>Desarrollo</h3>
             <p>Lo construyo y lo probamos juntos hasta que funcione como necesitás.</p>
           </li>
-          <li class="step">
+          <li class="step" style="--i: 3">
             <span class="step__num" aria-hidden="true">04</span>
             <h3>Soporte</h3>
             <p>Te acompaño después de la entrega con ajustes y mantenimiento.</p>
@@ -192,10 +321,15 @@
 
     <!-- 6. Contacto -->
     <section class="section section--dark contact" id="contacto" aria-labelledby="contacto-titulo">
-      <div class="container">
-        <h2 id="contacto-titulo">¿Necesitás una web o querés simplificar una tarea de tu negocio?</h2>
-        <p class="lead">Contame qué necesitás y vemos juntos cómo resolverlo. El diagnóstico inicial es gratis.</p>
-        <div class="actions">
+      <!-- Marca decorativa: contorno de las dos piezas de la S -->
+      <svg class="contact__mark" viewBox="-10 -10 262 267" aria-hidden="true" focusable="false" data-reveal="mark">
+        <path class="contact__piece contact__piece--a" d="M88 2H234Q242 2 240 10Q238 27 225 40L202 60Q190 69 173 69H86Q68 69 65 85Q62 96 72 106L124 157Q129 165 120 165H66Q48 165 36 153L15 132Q3 120 3 104V84Q3 65 17 51L58 11Q70 2 88 2Z"/>
+        <path class="contact__piece contact__piece--b" d="M110 87H164Q178 87 188 102L214 125Q225 137 225 153V170Q225 186 213 198L176 235Q166 245 146 245H6Q0 245 0 239Q0 216 16 200Q33 184 53 184H142Q161 184 163 171Q164 161 155 152L103 99Q97 93 103 89Q105 87 110 87Z"/>
+      </svg>
+      <div class="container contact__inner">
+        <h2 id="contacto-titulo" data-reveal>¿Necesitás una web o querés simplificar una tarea de tu negocio?</h2>
+        <p class="lead" data-reveal style="--d: 1">Contame qué necesitás y vemos juntos cómo resolverlo. El diagnóstico inicial es gratis.</p>
+        <div class="actions" data-reveal style="--d: 2">
           <!-- El link real de WhatsApp se arma desde js/config.js -->
           <a class="btn btn--primary" hidden data-config="whatsapp" target="_blank" rel="noopener">
             <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/></svg>
