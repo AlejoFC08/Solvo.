@@ -7,6 +7,7 @@ Landing de una sola página en HTML, CSS y JavaScript, sin frameworks ni build.
 ```
 index.html            Página completa
 css/styles.css        Estilos (los colores de marca están en :root)
+css/premium.css       Diseño visual, tarjetas y preguntas frecuentes
 js/config.js          ← DATOS A COMPLETAR (WhatsApp, mail, Instagram, trabajos)
 js/main.js            Menú del celular y carga de los datos de config.js
 assets/               Logo, favicon, imagen para redes y capturas de trabajos

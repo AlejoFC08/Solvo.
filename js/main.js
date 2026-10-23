@@ -118,6 +118,27 @@
   var reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hayObserver = "IntersectionObserver" in window;
 
+  // Luz localizada: acompaña el puntero sin mover el contenido de las tarjetas.
+  if (!reducirMovimiento && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".services .card").forEach(function (card) {
+      var pendiente = false;
+      var x = 0;
+      var y = 0;
+      card.addEventListener("pointermove", function (event) {
+        var rect = card.getBoundingClientRect();
+        x = event.clientX - rect.left;
+        y = event.clientY - rect.top;
+        if (pendiente) return;
+        pendiente = true;
+        window.requestAnimationFrame(function () {
+          card.style.setProperty("--spot-x", x + "px");
+          card.style.setProperty("--spot-y", y + "px");
+          pendiente = false;
+        });
+      });
+    });
+  }
+
   // Aparición de bloques al llegar a la vista
   var animables = document.querySelectorAll("[data-reveal]");
 
@@ -142,6 +163,11 @@
     }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
     animables.forEach(function (el) {
       observador.observe(el);
+    });
+    // El teclado debe poder llegar al contenido aunque todavía no haya entrado en vista.
+    document.addEventListener("focusin", function (event) {
+      var bloque = event.target.closest("[data-reveal]");
+      if (bloque) mostrar(bloque);
     });
   }
 
@@ -197,6 +223,19 @@
   var hero = document.querySelector(".hero");
   var visual = document.querySelector(".hero__visual");
   var arte = document.querySelector(".hero-art");
+  var controlMovimiento = document.querySelector(".motion-toggle");
+  if (controlMovimiento && !reducirMovimiento) {
+    controlMovimiento.hidden = false;
+    controlMovimiento.addEventListener("click", function () {
+      var pausado = raiz.classList.toggle("motion-paused");
+      controlMovimiento.setAttribute("aria-pressed", String(pausado));
+      controlMovimiento.textContent = pausado ? "Activar animaciones" : "Pausar animaciones";
+      if (arte && arte.pauseAnimations) {
+        if (pausado) arte.pauseAnimations();
+        else arte.unpauseAnimations();
+      }
+    });
+  }
 
   if (hero && visual && !reducirMovimiento && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     hero.addEventListener("pointermove", function (e) {
@@ -218,7 +257,7 @@
       new IntersectionObserver(function (entradas) {
         var visible = entradas[0].isIntersecting;
         hero.classList.toggle("is-paused", !visible);
-        if (visible) {
+        if (visible && !raiz.classList.contains("motion-paused")) {
           arte.unpauseAnimations();
         } else {
           arte.pauseAnimations();
