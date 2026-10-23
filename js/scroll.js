@@ -2,6 +2,7 @@
   "use strict";
   var root = document.documentElement;
   var desktop = window.matchMedia("(min-width: 1024px)");
+  var mobile = window.matchMedia("(max-width: 767px)");
   var hero = document.querySelector(".hero");
   var band = document.querySelector(".motion-band");
   var cards = document.querySelectorAll(".services .card");
@@ -33,12 +34,12 @@
       var top = entranceRects[index].top - entry.previousY;
       var progress = clamp((height * .98 - top) / (height * .43), 0, 1);
       var remaining = Math.pow(1 - progress, 2);
-      var distance = remaining * 72;
+      var distance = remaining * (mobile.matches ? 28 : 72);
       entry.previousY = distance;
       entry.element.style.setProperty("--entry-y", distance.toFixed(2) + "px");
-      entry.element.style.setProperty("--entry-x", (remaining * entry.direction * 48).toFixed(2) + "px");
+      entry.element.style.setProperty("--entry-x", (mobile.matches ? 0 : remaining * entry.direction * 48).toFixed(2) + "px");
       entry.element.style.setProperty("--entry-opacity", (.25 + progress * .75).toFixed(3));
-      entry.element.style.setProperty("--entry-scale", (.94 + progress * .06).toFixed(4));
+      entry.element.style.setProperty("--entry-scale", (mobile.matches ? 1 : .94 + progress * .06).toFixed(4));
     });
     if (heroRect && visible(heroRect, height)) {
       var travel = clamp(-heroRect.top, 0, heroRect.height);
@@ -83,5 +84,6 @@
   window.addEventListener("resize", schedule);
   window.addEventListener("load", schedule);
   desktop.addEventListener("change", schedule);
+  mobile.addEventListener("change", schedule);
   update();
 })();

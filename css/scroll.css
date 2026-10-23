@@ -42,3 +42,12 @@
 .motion-paused.scroll-fx .flow .flow__icon { background:#083dbe; color:#fff; transform:none; }
 .motion-paused .scroll-scene__label span,.motion-paused .scene-progress { display:none; }
 @media(prefers-reduced-motion:reduce) { html:not(.motion-enabled) .hero__content,html:not(.motion-enabled) .hero__visual,html:not(.motion-enabled) .services .card,html:not(.motion-enabled) .contact__mark,html:not(.motion-enabled) .motion-band__track { translate:none; rotate:none; } }
+
+/* En celular el contenido conserva su ancho y sus alineaciones mientras se anima. */
+@media(max-width:767px) {
+  .scroll-fx [data-scroll-entry] { translate:0 var(--entry-y,0px) !important; scale:1; }
+  .scroll-fx .hero__content { translate:none; }
+  .scroll-fx .hero__visual { translate:0 calc(var(--hero-art-y,0px) * .25); rotate:0deg; }
+  .motion-band { padding-block:22px; }
+  .motion-band__track { font-size:2.25rem; }
+}

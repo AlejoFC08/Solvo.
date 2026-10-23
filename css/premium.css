@@ -84,3 +84,41 @@ h2 { max-width: 24ch; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.12; }
 @media(min-width:600px) { .step + .step { border-top:0; } .step:nth-child(even) { border-left:1px solid var(--borde); } .step:nth-child(n+3) { border-top:1px solid var(--borde); } }
 @media(min-width:1024px) { .section { padding-block:112px; } .hero { padding-block:110px 100px; } .hero__grid { grid-template-columns:1.2fr 1fr; gap:35px; } .hero__visual { width:110%; margin-left:-5%; } .faq-layout { grid-template-columns:1fr 1fr; gap:100px; } .step + .step { border-left:1px solid var(--borde); border-top:0; } }
 @media(prefers-reduced-motion:reduce) { html:not(.motion-enabled) .hero::after { animation:none; } html:not(.motion-enabled) .faq-list summary span { transition:none; } }
+
+@media(max-width:767px) {
+  .container { min-width:0; }
+  .hero { padding-block:48px 40px; }
+  .hero__grid { gap:28px; grid-template-columns:minmax(0,1fr); }
+  .hero__content { min-width:0; }
+  .hero h1 { font-size:clamp(2.5rem,10.5vw,3.5rem); max-width:100%; line-height:1.08; }
+  .hero .eyebrow { font-size:.625rem; letter-spacing:.12em; line-height:1.7; }
+  .hero .eyebrow::before { flex-shrink:0; }
+  .hero .lead { font-size:1rem; line-height:1.7; }
+  .hero__visual { width:min(100%,300px); margin-inline:auto; }
+  .hero-art { overflow:hidden; }
+  .section { padding-block:60px; }
+  h2,.contact h2 { font-size:clamp(1.75rem,7.5vw,2.4rem); max-width:100%; overflow-wrap:break-word; }
+  .services,.compare,.steps,.faq-layout { grid-template-columns:minmax(0,1fr); }
+  .card { padding:24px; min-width:0; }
+  .card h3 { font-size:1.4rem; max-width:100%; }
+  .card__icon { margin-bottom:20px; }
+  .check-list { font-size:.8125rem; }
+  .about { margin-top:32px; padding-top:28px; }
+  .about h3 { font-size:1.4rem; }
+  .flow { padding:24px 20px; gap:28px; margin-block:24px; }
+  .flow__step { gap:14px; min-width:0; }
+  .flow__step p { min-width:0; }
+  .flow__icon { width:48px; height:48px; }
+  .flow__link { left:23px; top:48px; bottom:-28px; }
+  .compare__card { padding:24px; min-width:0; }
+  .steps { overflow:visible; border:0; gap:16px; }
+  .steps .step { border:1px solid var(--borde); border-radius:16px; padding:24px; }
+  .step__num { font-size:2rem; margin-bottom:20px; }
+  .faq-list { min-width:0; }
+  .faq-list summary { gap:12px; font-size:.875rem; }
+  .faq-list details p { padding-right:0; }
+  .contact { padding-block:60px; }
+  .contact__mark { width:200px; right:-35px; opacity:.6; }
+  .trust__item { min-width:0; }
+  .btn { padding-inline:18px; }
+}
