@@ -6,6 +6,9 @@
  *  La página toma estos valores automáticamente.
  */
 window.SOLVO_CONFIG = {
+  // Presentación personal: se muestra solo cuando cargues tus datos reales.
+  nombre: "",
+  foto: "", // Ruta local, por ejemplo assets/perfil.webp.
   // Número de WhatsApp con código de país, sin "+", espacios ni guiones.
   // Ejemplo para Argentina (celular): "5491112345678"
   whatsapp: "[COMPLETAR]",

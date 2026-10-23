@@ -27,6 +27,41 @@ Podés agregar trabajos al listado cuando tengas el nombre y una captura real.
 La sección de contacto no tiene formulario: los botones de WhatsApp y mail
 aparecen cuando cargás esos datos en `js/config.js`.
 
+## Presentación y caso real
+
+En `js/config.js`, `nombre` y `foto` permiten mostrar el nombre profesional y un
+retrato real. La foto debe ser un archivo dentro de `assets/` (webp, jpg o png).
+Mientras no estén completos, esos elementos permanecen ocultos.
+
+La demostración del caso del colegio es ilustrativa: usa datos ficticios y no
+procesa documentos ni envía correos. No reemplaza capturas del sistema real.
+Para publicar capturas o testimonios, aportar el material autorizado y quitar
+datos personales de empleados e institución.
+
+## Medición preparada (pendiente de conectar)
+
+`js/conversion.js` emite eventos `solvo:analytics` y los agrega a `window.dataLayer`
+solo si una herramienta conectada ya creó esa cola. No instala proveedores, no
+envía información por su cuenta y no guarda estadísticas centrales.
+
+Eventos: `solvo_page_view`, `solvo_service_select` (web/automatizacion),
+`solvo_demo_start`, `solvo_demo_step` y `solvo_contact_click` (canal).
+No se incluyen mensajes, nombres, emails ni teléfonos en estos eventos.
+Un clic de contacto mide intención; no confirma que se haya recibido una consulta.
+Para obtener informes hace falta elegir una herramienta, conectar la cuenta y
+configurar los eventos y las preferencias de privacidad correspondientes.
+
+## Dominio propio (pendiente de elección y registro)
+
+1. Elegir y registrar el dominio a nombre del titular del emprendimiento.
+2. Agregarlo al proyecto existente en Netlify, en Domain management.
+3. Configurar en el registrador los registros DNS indicados por Netlify.
+4. Comprobar HTTPS y elegir el dominio principal, con su redirección.
+5. Actualizar `canonical`, `og:url` y `og:image` en `index.html` con el dominio real.
+6. Contratar o conectar por separado el correo de ese dominio y cargarlo en config.
+
+No se compró ni conectó un dominio nuevo. El sitio conserva su dirección actual.
+
 ## Verla en local
 
 - **Rápido:** doble clic en `index.html`.

@@ -36,9 +36,11 @@
   <link rel="stylesheet" href="css/styles.css?v=smooth5">
   <link rel="stylesheet" href="css/premium.css?v=smooth5">
   <link rel="stylesheet" href="css/scroll.css?v=smooth5">
+  <link rel="stylesheet" href="css/conversion.css?v=6">
   <script src="js/config.js" defer></script>
   <script src="js/main.js?v=smooth5" defer></script>
   <script src="js/scroll.js?v=smooth5" defer></script>
+  <script src="js/conversion.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -198,13 +200,16 @@
               <path d="M5.5 6.25h.01M8 6.25h.01"/>
               <path d="M6 12.5h7M6 15.5h4.5"/>
             </svg>
-            <h3>Páginas web</h3>
+            <p class="service-tag">Para presentar tu negocio</p>
+            <h3>Necesito una web</h3>
             <p>Tu negocio en internet: una web clara, rápida y que se ve bien en el celular, pensada para que te contacten.</p>
             <ul class="check-list">
               <li>Landing pages y sitios institucionales</li>
               <li>Botón de WhatsApp y formularios de contacto</li>
               <li>Diseño adaptado a tu marca</li>
             </ul>
+            <p class="service-example">Ideal para un comercio, un profesional o una institución que necesita mostrar lo que hace y recibir consultas.</p>
+            <a class="service-link" href="#contacto" data-service="web">Quiero una web <span aria-hidden="true">↗</span></a>
           </article>
 
           <article class="card" data-reveal style="--d: 2">
@@ -216,22 +221,27 @@
               <circle cx="19" cy="7" r="2"/>
               <circle cx="5" cy="17" r="2"/>
             </svg>
-            <h3>Automatización y sistemas a medida</h3>
+            <p class="service-tag">Para simplificar tu día a día</p>
+            <h3>Quiero automatizar una tarea</h3>
             <p>Si hay una tarea que hacés a mano todos los meses, probablemente se pueda automatizar. Te armo la solución para tu caso.</p>
             <ul class="check-list">
               <li>Envíos automáticos de mails y documentos</li>
               <li>Planillas inteligentes con Google Sheets y Excel</li>
               <li>Pequeños sistemas de gestión para tu equipo</li>
             </ul>
+            <p class="service-example">Por ejemplo: enviar documentos, organizar una planilla o dejar de copiar los mismos datos todos los meses.</p>
+            <a class="service-link" href="#contacto" data-service="automatizacion">Quiero ahorrar tiempo <span aria-hidden="true">↗</span></a>
           </article>
         </div>
 
         <aside class="about" aria-labelledby="sobre-titulo" data-reveal>
           <div>
             <p class="eyebrow">Sobre Solvo</p>
-            <h3 id="sobre-titulo">Trato directo, desde la primera charla</h3>
+            <h3 id="sobre-titulo">Detrás de cada solución, una persona.</h3>
+            <p class="about-identity" data-profile-name hidden></p>
+            <img class="about-photo" data-profile-photo hidden alt="" width="160" height="160" loading="lazy">
           </div>
-          <p>Solvo es mi emprendimiento de soluciones digitales en Buenos Aires. Trabajo con negocios y equipos que necesitan una web o quieren simplificar su trabajo diario. Charlás conmigo, definimos una propuesta a medida y probamos juntos la solución antes de la entrega.</p>
+          <div class="about-story"><p>Solvo es mi emprendimiento de soluciones digitales en Buenos Aires. Me involucro en cada proyecto: escucho cómo trabajás, desarrollo la solución y la probamos juntos.</p><p>No necesitás llegar con una idea técnica. Podés empezar con una tarea que te lleva demasiado tiempo o con las ganas de mostrar mejor tu negocio.</p><ul class="about-promises"><li>Alcance, tiempos y precio antes de empezar.</li><li>Comunicación directa durante el desarrollo.</li><li>Pruebas y condiciones de soporte acordadas.</li></ul></div>
         </aside>
       </div>
     </section>
@@ -292,6 +302,28 @@
         </div>
 
         <p class="case-outcome" data-reveal><strong>Todo el proceso, en un mismo lugar:</strong> separar los recibos, enviarlos y consultar las confirmaciones de recepción.</p>
+
+        <section class="case-demo" aria-labelledby="demo-titulo">
+          <div class="case-demo__intro">
+            <p class="eyebrow">Probá el recorrido</p>
+            <h3 id="demo-titulo">Así se simplifica la entrega de recibos</h3>
+            <p>Una demostración ilustrativa del proceso, con datos ficticios. No es una captura del sistema del colegio y no envía correos.</p>
+            <button class="btn btn--primary" type="button" id="demo-next">Iniciar demostración</button>
+          </div>
+          <div class="demo-screen">
+            <div class="demo-screen__bar"><span class="demo-dots" aria-hidden="true">● ● ●</span><span>Solvo / Ejemplo de automatización</span></div>
+            <div class="demo-screen__body">
+              <p class="demo-step" id="demo-step">01 / Archivo de ejemplo</p>
+              <div class="demo-document" aria-hidden="true"><span>PDF</span><strong>recibos-ejemplo.pdf</strong><small>3 recibos ficticios en un archivo</small></div>
+              <ul class="demo-records" id="demo-records" hidden>
+                <li><span>Persona A <small>persona-a@example.com</small></span><strong>Pendiente</strong></li>
+                <li><span>Persona B <small>persona-b@example.com</small></span><strong>Pendiente</strong></li>
+                <li><span>Persona C <small>persona-c@example.com</small></span><strong>Pendiente</strong></li>
+              </ul>
+              <p class="demo-status" id="demo-status" role="status" aria-live="polite" aria-atomic="true">Empezá para ver cómo un archivo se convierte en tres recibos individuales.</p>
+            </div>
+          </div>
+        </section>
 
         <div class="works" hidden>
           <h3 class="works__title">Otros trabajos</h3>
@@ -358,6 +390,7 @@
       <div class="container contact__inner">
         <h2 id="contacto-titulo" data-reveal>¿Necesitás una web o querés simplificar una tarea de tu negocio?</h2>
         <p class="lead" data-reveal style="--d: 1">Contame qué necesitás y vemos juntos cómo resolverlo. El diagnóstico inicial es gratis.</p>
+        <p class="contact-choice" id="contact-choice" role="status" hidden></p>
         <div class="actions" data-reveal style="--d: 2">
           <!-- El link real de WhatsApp se arma desde js/config.js -->
           <a class="btn btn--primary" hidden data-config="whatsapp" target="_blank" rel="noopener">
