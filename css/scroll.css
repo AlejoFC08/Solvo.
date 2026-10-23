@@ -1,4 +1,13 @@
 /* Scroll nativo: el movimiento acompaña la lectura, sin capturar rueda ni gestos. */
+.scroll-fx [data-scroll-entry] {
+  translate:var(--entry-x,0px) var(--entry-y,0px) !important;
+  scale:var(--entry-scale,1);
+  opacity:var(--entry-opacity,1) !important;
+  transform:none !important;
+  transform-origin:center top;
+  transition:none !important;
+}
+.scroll-fx [data-scroll-entry]:focus-within { translate:none !important; scale:1; opacity:1 !important; }
 .motion-band { overflow:hidden; padding:32px 0; background:#edf2fb; border-bottom:1px solid #dde3ee; }
 .motion-band__track { width:max-content; font-size:clamp(2.4rem,6vw,6rem); font-weight:600; letter-spacing:-.065em; line-height:1.15; color:#102344; translate:var(--band-shift,0px) 0; }
 .motion-band__track span { color:#5273ab; margin-inline:.22em .55em; }

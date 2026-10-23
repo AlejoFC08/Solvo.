@@ -1,7 +1,6 @@
 (function () {
   "use strict";
   var root = document.documentElement;
-  var preference = window.matchMedia("(prefers-reduced-motion: reduce)");
   var desktop = window.matchMedia("(min-width: 1024px)");
   var hero = document.querySelector(".hero");
   var band = document.querySelector(".motion-band");
@@ -11,15 +10,17 @@
   var steps = document.querySelectorAll(".scroll-scene .flow__step");
   var contact = document.querySelector(".contact");
   var queued = false;
+  var entrances = Array.prototype.map.call(document.querySelectorAll('.section h2, .services .card, .about, .compare__card, .steps .step, .trust__item, .faq-list'), function (element, index) {
+    element.setAttribute("data-scroll-entry", "");
+    return { element: element, previousY: 0, direction: index % 2 ? 1 : -1 };
+  });
 
   function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
   function visible(rect, height) { return rect.bottom > 0 && rect.top < height; }
 
   function update() {
     queued = false;
-    var enabled = !preference.matches || root.classList.contains("motion-enabled");
-    root.classList.toggle("scroll-fx", enabled);
-    if (!enabled || root.classList.contains("motion-paused")) return;
+    root.classList.add("scroll-fx", "motion-enabled");
     var height = window.innerHeight;
     // Medimos primero y aplicamos estilos después para evitar recalcular el diseño por elemento.
     var heroRect = hero ? hero.getBoundingClientRect() : null;
@@ -27,6 +28,18 @@
     var servicesRect = services ? services.getBoundingClientRect() : null;
     var sceneRect = scene ? scene.getBoundingClientRect() : null;
     var contactRect = contact ? contact.getBoundingClientRect() : null;
+    var entranceRects = entrances.map(function (entry) { return entry.element.getBoundingClientRect(); });
+    entrances.forEach(function (entry, index) {
+      var top = entranceRects[index].top - entry.previousY;
+      var progress = clamp((height * .98 - top) / (height * .43), 0, 1);
+      var remaining = Math.pow(1 - progress, 2);
+      var distance = remaining * 72;
+      entry.previousY = distance;
+      entry.element.style.setProperty("--entry-y", distance.toFixed(2) + "px");
+      entry.element.style.setProperty("--entry-x", (remaining * entry.direction * 48).toFixed(2) + "px");
+      entry.element.style.setProperty("--entry-opacity", (.25 + progress * .75).toFixed(3));
+      entry.element.style.setProperty("--entry-scale", (.94 + progress * .06).toFixed(4));
+    });
     if (heroRect && visible(heroRect, height)) {
       var travel = clamp(-heroRect.top, 0, heroRect.height);
       hero.style.setProperty("--hero-text-y", (travel * .10).toFixed(2) + "px");
@@ -69,10 +82,6 @@
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule);
   window.addEventListener("load", schedule);
-  preference.addEventListener("change", schedule);
-  window.addEventListener("solvo:motionchange", schedule);
   desktop.addEventListener("change", schedule);
-  var toggle = document.querySelector(".motion-toggle");
-  if (toggle) toggle.addEventListener("click", schedule);
   update();
 })();

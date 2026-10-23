@@ -115,7 +115,7 @@
 
   /* ---------- Animaciones ---------- */
   var raiz = document.documentElement;
-  var reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reducirMovimiento = false;
   var hayObserver = "IntersectionObserver" in window;
 
   // Luz localizada: acompaña el puntero sin mover el contenido de las tarjetas.
@@ -223,26 +223,6 @@
   var hero = document.querySelector(".hero");
   var visual = document.querySelector(".hero__visual");
   var arte = document.querySelector(".hero-art");
-  var controlMovimiento = document.querySelector(".motion-toggle");
-  if (controlMovimiento) {
-    controlMovimiento.hidden = false;
-    controlMovimiento.textContent = reducirMovimiento ? "Activar animaciones" : "Pausar animaciones";
-    controlMovimiento.setAttribute("aria-pressed", String(reducirMovimiento));
-    controlMovimiento.addEventListener("click", function () {
-      var pausado = !reducirMovimiento && !raiz.classList.contains("motion-paused");
-      reducirMovimiento = false;
-      raiz.classList.toggle("motion-paused", pausado);
-      raiz.classList.toggle("motion-enabled", !pausado);
-      controlMovimiento.setAttribute("aria-pressed", String(pausado));
-      controlMovimiento.textContent = pausado ? "Activar animaciones" : "Pausar animaciones";
-      if (arte && arte.pauseAnimations) {
-        if (pausado) arte.pauseAnimations();
-        else arte.unpauseAnimations();
-      }
-      window.dispatchEvent(new Event("solvo:motionchange"));
-    });
-  }
-
   if (hero && visual && !reducirMovimiento && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     hero.addEventListener("pointermove", function (e) {
       var r = hero.getBoundingClientRect();
