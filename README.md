@@ -23,18 +23,8 @@ Buscá `[COMPLETAR]` en el proyecto. Está en:
 Los contactos sin completar y los trabajos de ejemplo quedan ocultos automáticamente.
 Podés agregar trabajos al listado cuando tengas el nombre y una captura real.
 
-## Formulario de consultas
-
-El formulario está preparado para Netlify Forms e incluye un campo antispam.
-Para recibir consultas, habilitá la detección de formularios en el panel de Netlify
-y volvé a publicar el sitio. Después comprobá que aparezca el formulario `consulta`
-y hacé un envío de prueba desde la web publicada. Las consultas se revisan en el
-panel de Netlify; configurá ahí las notificaciones si querés recibirlas por mail.
-
-El formulario siempre envía los datos a `https://solvo-ar.netlify.app/gracias.html`
-(atributo `action`), así que funciona igual desde Netlify, desde GitHub Pages y
-desde la versión local. Después del envío se muestra `gracias.html`.
-Si cambiás de dominio, actualizá esa dirección en el `action` del formulario.
+La sección de contacto no tiene formulario: los botones de WhatsApp y mail
+aparecen cuando cargás esos datos en `js/config.js`.
 
 ## Verla en local
 

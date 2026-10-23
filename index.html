@@ -10,8 +10,7 @@
 
   <!--
     Dirección pública del sitio. Si más adelante conectás un dominio propio
-    (por ejemplo "https://solvo.com.ar"), cambialo en estas 3 líneas
-    y en el "action" del formulario de contacto.
+    (por ejemplo "https://solvo.com.ar"), cambialo en estas 3 líneas.
   -->
   <link rel="canonical" href="https://solvo-ar.netlify.app/">
   <meta property="og:url" content="https://solvo-ar.netlify.app/">
@@ -208,22 +207,6 @@
             <span data-config-text>Escribime por mail</span>
           </a>
         </div>
-        <!--
-          El formulario siempre se envía a Netlify (dirección completa en "action"),
-          así funciona también cuando la página se abre desde GitHub Pages.
-          Si cambiás de dominio, actualizá la dirección acá también.
-        -->
-        <form class="contact-form" name="consulta" method="POST" action="https://solvo-ar.netlify.app/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="consulta">
-          <p hidden><label>No completar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-          <div class="contact-form__row">
-            <label>Tu nombre<input name="nombre" autocomplete="name" required maxlength="120"></label>
-            <label>Tu email<input type="email" name="email" autocomplete="email" required maxlength="254"></label>
-          </div>
-          <label>¿Qué necesitás?<textarea name="mensaje" rows="5" required maxlength="5000" placeholder="Contame sobre tu negocio, la web que imaginás o la tarea que querés simplificar."></textarea></label>
-          <p class="contact-form__note">Usaré estos datos para responder tu consulta.</p>
-          <button class="btn btn--primary" type="submit">Enviar consulta</button>
-        </form>
       </div>
     </section>
   </main>
