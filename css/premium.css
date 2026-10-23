@@ -83,4 +83,4 @@ h2 { max-width: 24ch; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.12; }
 @keyframes atmosphere { to { transform:translate3d(-3%,3%,0) scale(1.06); } }
 @media(min-width:600px) { .step + .step { border-top:0; } .step:nth-child(even) { border-left:1px solid var(--borde); } .step:nth-child(n+3) { border-top:1px solid var(--borde); } }
 @media(min-width:1024px) { .section { padding-block:112px; } .hero { padding-block:110px 100px; } .hero__grid { grid-template-columns:1.2fr 1fr; gap:35px; } .hero__visual { width:110%; margin-left:-5%; } .faq-layout { grid-template-columns:1fr 1fr; gap:100px; } .step + .step { border-left:1px solid var(--borde); border-top:0; } }
-@media(prefers-reduced-motion:reduce) { .hero::after { animation:none; } .faq-list summary span { transition:none; } }
+@media(prefers-reduced-motion:reduce) { html:not(.motion-enabled) .hero::after { animation:none; } html:not(.motion-enabled) .faq-list summary span { transition:none; } }

@@ -1464,19 +1464,19 @@ h2 {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
+  html:not(.motion-enabled) *,
+  html:not(.motion-enabled) *::before,
+  html:not(.motion-enabled) *::after {
     transition: none !important;
     animation: none !important;
   }
 
-  .hero__visual {
+  html:not(.motion-enabled) .hero__visual {
     transform: none;
   }
 
-  .hero-art__packets,
-  .flow__packet {
+  html:not(.motion-enabled) .hero-art__packets,
+  html:not(.motion-enabled) .flow__packet {
     display: none;
   }
 }

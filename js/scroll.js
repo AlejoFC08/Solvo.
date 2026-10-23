@@ -17,7 +17,7 @@
 
   function update() {
     queued = false;
-    var enabled = !preference.matches;
+    var enabled = !preference.matches || root.classList.contains("motion-enabled");
     root.classList.toggle("scroll-fx", enabled);
     if (!enabled || root.classList.contains("motion-paused")) return;
     var height = window.innerHeight;
@@ -35,16 +35,17 @@
     }
     if (bandRect && visible(bandRect, height)) {
       var progress = clamp((height - bandRect.top) / (height + bandRect.height), 0, 1);
-      band.style.setProperty("--band-shift", (-progress * (desktop.matches ? 280 : 100)).toFixed(2) + "px");
+      band.style.setProperty("--band-shift", (-progress * (desktop.matches ? 480 : 240)).toFixed(2) + "px");
     }
-    if (desktop.matches) {
       cards.forEach(function (card, index) {
         if (!servicesRect || !visible(servicesRect, height)) return;
         var offset = clamp((servicesRect.top - height * .35) / height, -.5, 1);
-        card.style.setProperty("--card-y", (offset * (index % 2 ? 48 : -32)).toFixed(2) + "px");
+        card.style.setProperty("--card-y", (offset * (index % 2 ? 64 : -48)).toFixed(2) + "px");
       });
       if (sceneRect && visible(sceneRect, height)) {
-        var sceneProgress = clamp((height * .28 - sceneRect.top) / Math.max(1, sceneRect.height - height * .65), 0, 1);
+        var sceneProgress = desktop.matches
+          ? clamp((height * .28 - sceneRect.top) / Math.max(1, sceneRect.height - height * .65), 0, 1)
+          : clamp((height * .72 - sceneRect.top) / Math.max(1, sceneRect.height * .8), 0, 1);
         scene.style.setProperty("--scene-progress", sceneProgress.toFixed(4));
         var current = Math.min(steps.length - 1, Math.floor(sceneProgress * steps.length));
         steps.forEach(function (step, index) {
@@ -53,7 +54,6 @@
           step.style.setProperty("--link-progress", clamp(sceneProgress * steps.length - index, 0, 1).toFixed(4));
         });
       }
-    }
     if (contactRect && visible(contactRect, height)) {
       var amount = clamp((height - contactRect.top) / (height + contactRect.height), 0, 1);
       contact.style.setProperty("--mark-y", (45 - amount * 90).toFixed(2) + "px");
@@ -70,6 +70,7 @@
   window.addEventListener("resize", schedule);
   window.addEventListener("load", schedule);
   preference.addEventListener("change", schedule);
+  window.addEventListener("solvo:motionchange", schedule);
   desktop.addEventListener("change", schedule);
   var toggle = document.querySelector(".motion-toggle");
   if (toggle) toggle.addEventListener("click", schedule);

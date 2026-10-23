@@ -224,16 +224,22 @@
   var visual = document.querySelector(".hero__visual");
   var arte = document.querySelector(".hero-art");
   var controlMovimiento = document.querySelector(".motion-toggle");
-  if (controlMovimiento && !reducirMovimiento) {
+  if (controlMovimiento) {
     controlMovimiento.hidden = false;
+    controlMovimiento.textContent = reducirMovimiento ? "Activar animaciones" : "Pausar animaciones";
+    controlMovimiento.setAttribute("aria-pressed", String(reducirMovimiento));
     controlMovimiento.addEventListener("click", function () {
-      var pausado = raiz.classList.toggle("motion-paused");
+      var pausado = !reducirMovimiento && !raiz.classList.contains("motion-paused");
+      reducirMovimiento = false;
+      raiz.classList.toggle("motion-paused", pausado);
+      raiz.classList.toggle("motion-enabled", !pausado);
       controlMovimiento.setAttribute("aria-pressed", String(pausado));
       controlMovimiento.textContent = pausado ? "Activar animaciones" : "Pausar animaciones";
       if (arte && arte.pauseAnimations) {
         if (pausado) arte.pauseAnimations();
         else arte.unpauseAnimations();
       }
+      window.dispatchEvent(new Event("solvo:motionchange"));
     });
   }
 
