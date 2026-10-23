@@ -30,8 +30,11 @@ Para recibir consultas, habilitá la detección de formularios en el panel de Ne
 y volvé a publicar el sitio. Después comprobá que aparezca el formulario `consulta`
 y hacé un envío de prueba desde la web publicada. Las consultas se revisan en el
 panel de Netlify; configurá ahí las notificaciones si querés recibirlas por mail.
-El envío requiere Netlify Forms: no funciona al abrir el HTML localmente ni en
-otro alojamiento sin configurar un servicio de recepción.
+
+El formulario siempre envía los datos a `https://solvo-ar.netlify.app/gracias.html`
+(atributo `action`), así que funciona igual desde Netlify, desde GitHub Pages y
+desde la versión local. Después del envío se muestra `gracias.html`.
+Si cambiás de dominio, actualizá esa dirección en el `action` del formulario.
 
 ## Verla en local
 

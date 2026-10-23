@@ -590,6 +590,24 @@ h2 {
   color: var(--texto-suave);
 }
 
+/* ---------- Página de gracias ---------- */
+.thanks {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - var(--header-h) - 120px);
+  min-height: calc(100svh - var(--header-h) - 120px);
+}
+
+.thanks h1 {
+  font-size: clamp(2rem, 1.4rem + 3vw, 3.25rem);
+  max-width: 18ch;
+  margin-bottom: 20px;
+}
+
+.thanks .lead {
+  margin-bottom: 32px;
+}
+
 /* ---------- 6. Contacto ---------- */
 .contact {
   padding: 80px 0;

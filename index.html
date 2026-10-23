@@ -10,7 +10,8 @@
 
   <!--
     Dirección pública del sitio. Si más adelante conectás un dominio propio
-    (por ejemplo "https://solvo.com.ar"), cambialo en estas 3 líneas.
+    (por ejemplo "https://solvo.com.ar"), cambialo en estas 3 líneas
+    y en el "action" del formulario de contacto.
   -->
   <link rel="canonical" href="https://solvo-ar.netlify.app/">
   <meta property="og:url" content="https://solvo-ar.netlify.app/">
@@ -207,7 +208,12 @@
             <span data-config-text>Escribime por mail</span>
           </a>
         </div>
-        <form class="contact-form" name="consulta" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <!--
+          El formulario siempre se envía a Netlify (dirección completa en "action"),
+          así funciona también cuando la página se abre desde GitHub Pages.
+          Si cambiás de dominio, actualizá la dirección acá también.
+        -->
+        <form class="contact-form" name="consulta" method="POST" action="https://solvo-ar.netlify.app/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="consulta">
           <p hidden><label>No completar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
           <div class="contact-form__row">
