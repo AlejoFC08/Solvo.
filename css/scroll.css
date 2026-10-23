@@ -45,9 +45,26 @@
 
 /* En celular el contenido conserva su ancho y sus alineaciones mientras se anima. */
 @media(max-width:767px) {
-  .scroll-fx [data-scroll-entry] { translate:0 var(--entry-y,0px) !important; scale:1; }
+  .scroll-fx.mobile-motion [data-scroll-entry] {
+    translate:none !important;
+    scale:1;
+    transform:translate3d(0,24px,0) !important;
+    opacity:.3 !important;
+    transition:transform .65s cubic-bezier(.22,1,.36,1),opacity .65s ease-out !important;
+  }
+  .scroll-fx.mobile-motion [data-scroll-entry].entry-entered,
+  .scroll-fx.mobile-motion [data-scroll-entry]:focus-within {
+    transform:translate3d(0,0,0) !important;
+    opacity:1 !important;
+  }
   .scroll-fx .hero__content { translate:none; }
-  .scroll-fx .hero__visual { translate:0 calc(var(--hero-art-y,0px) * .25); rotate:0deg; }
+  .scroll-fx .hero__visual { translate:none; rotate:0deg; }
+  .scroll-fx .contact__mark { translate:none; rotate:0deg; }
   .motion-band { padding-block:22px; }
-  .motion-band__track { font-size:2.25rem; }
+  .motion-band__track { font-size:2.25rem; translate:none; animation:mobile-band 16s ease-in-out infinite alternate; }
+  .flow__packet { display:none; }
+  .hero__visual { filter:none; }
+  .hero::after { animation:none; }
+  .site-header,.site-header.is-scrolled { background:#0a1425; -webkit-backdrop-filter:none; backdrop-filter:none; }
 }
+@keyframes mobile-band { from { transform:translate3d(0,0,0); } to { transform:translate3d(-240px,0,0); } }

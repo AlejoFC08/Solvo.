@@ -11,6 +11,7 @@
   var steps = document.querySelectorAll(".scroll-scene .flow__step");
   var contact = document.querySelector(".contact");
   var queued = false;
+  var entranceObserver = null;
   var entrances = Array.prototype.map.call(document.querySelectorAll('.section h2, .services .card, .about, .compare__card, .steps .step, .trust__item, .faq-list'), function (element, index) {
     element.setAttribute("data-scroll-entry", "");
     return { element: element, previousY: 0, direction: index % 2 ? 1 : -1 };
@@ -19,18 +20,38 @@
   function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
   function visible(rect, height) { return rect.bottom > 0 && rect.top < height; }
 
+  function configureEntrances() {
+    root.classList.toggle("mobile-motion", mobile.matches);
+    if (entranceObserver) entranceObserver.disconnect();
+    entrances.forEach(function (entry) { entry.previousY = 0; });
+    if (mobile.matches && "IntersectionObserver" in window) {
+      // En celular, el navegador anima cada entrada sin medir todas las tarjetas al hacer scroll.
+      entranceObserver = new IntersectionObserver(function (items) {
+        items.forEach(function (item) {
+          if (!item.isIntersecting) return;
+          item.target.classList.add("entry-entered");
+          entranceObserver.unobserve(item.target);
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+      entrances.forEach(function (entry) { entranceObserver.observe(entry.element); });
+    } else if (mobile.matches) {
+      entrances.forEach(function (entry) { entry.element.classList.add("entry-entered"); });
+    }
+  }
+
   function update() {
     queued = false;
     root.classList.add("scroll-fx", "motion-enabled");
     var height = window.innerHeight;
     // Medimos primero y aplicamos estilos después para evitar recalcular el diseño por elemento.
-    var heroRect = hero ? hero.getBoundingClientRect() : null;
-    var bandRect = band ? band.getBoundingClientRect() : null;
-    var servicesRect = services ? services.getBoundingClientRect() : null;
+    var heroRect = hero && !mobile.matches ? hero.getBoundingClientRect() : null;
+    var bandRect = band && !mobile.matches ? band.getBoundingClientRect() : null;
+    var servicesRect = services && !mobile.matches ? services.getBoundingClientRect() : null;
     var sceneRect = scene ? scene.getBoundingClientRect() : null;
-    var contactRect = contact ? contact.getBoundingClientRect() : null;
-    var entranceRects = entrances.map(function (entry) { return entry.element.getBoundingClientRect(); });
-    entrances.forEach(function (entry, index) {
+    var contactRect = contact && !mobile.matches ? contact.getBoundingClientRect() : null;
+    var activeEntrances = mobile.matches ? [] : entrances;
+    var entranceRects = activeEntrances.map(function (entry) { return entry.element.getBoundingClientRect(); });
+    activeEntrances.forEach(function (entry, index) {
       var top = entranceRects[index].top - entry.previousY;
       var progress = clamp((height * .98 - top) / (height * .43), 0, 1);
       var remaining = Math.pow(1 - progress, 2);
@@ -84,6 +105,7 @@
   window.addEventListener("resize", schedule);
   window.addEventListener("load", schedule);
   desktop.addEventListener("change", schedule);
-  mobile.addEventListener("change", schedule);
+  mobile.addEventListener("change", function () { configureEntrances(); schedule(); });
+  configureEntrances();
   update();
 })();
