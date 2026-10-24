@@ -22,7 +22,7 @@ window.SOLVO_CONFIG = {
   // Tu usuario de Instagram, sin "@". Ejemplo: "solvo.ar"
   instagram: "[COMPLETAR]",
 
-  // Los 3 trabajos de "Otros trabajos".
+  // Proyectos destacados. El primero se muestra con mayor protagonismo.
   //  - imagen: ruta a la captura (ideal 800 × 500 px, en .webp o .jpg, menos de 150 KB).
   //            Guardala en assets/trabajos/ — ejemplo: "assets/trabajos/panaderia.webp"
   //  - cliente: nombre del cliente.
@@ -30,22 +30,28 @@ window.SOLVO_CONFIG = {
   //  - url:     link al sitio publicado (opcional; dejalo en "" si no hay).
   trabajos: [
     {
-      imagen: "assets/trabajos/placeholder.svg",
-      cliente: "Cliente 1 [COMPLETAR]",
-      tipo: "Página web",
-      url: ""
+      imagen: "assets/trabajos/happybox.jpg",
+      cliente: "Happy Box",
+      tipo: "Regalos · Catálogo de productos",
+      descripcion: "Una web para recorrer regalos y detalles hechos a mano, descubrir categorías y armar un pedido. Una identidad cálida que acompaña la presentación de sus productos.",
+      etiquetas: ["Catálogo", "Selección de productos", "Contacto por WhatsApp"],
+      url: "https://alejofc08.github.io/WebHappyBox/index.html"
     },
     {
-      imagen: "assets/trabajos/placeholder.svg",
-      cliente: "Cliente 2 [COMPLETAR]",
-      tipo: "Página web",
-      url: ""
+      imagen: "assets/trabajos/nexmant.jpg",
+      cliente: "NexMant",
+      tipo: "Mantenimiento integral · Sitio institucional",
+      descripcion: "Presentación de una empresa de mantenimiento, restauración y remodelación edilicia. Servicios, trabajos realizados y vías de contacto reunidos en un sitio institucional.",
+      etiquetas: ["Servicios", "Galería de trabajos", "Consultas"],
+      url: "https://nexmant.com.ar/"
     },
     {
-      imagen: "assets/trabajos/placeholder.svg",
-      cliente: "Cliente 3 [COMPLETAR]",
-      tipo: "Página web",
-      url: ""
+      imagen: "assets/trabajos/fretes-garcia.jpg",
+      cliente: "Fretes García",
+      tipo: "Estudio contable · Sitio profesional",
+      descripcion: "Una presencia digital para presentar los valores del estudio y organizar sus servicios contables, impositivos y societarios, con acceso directo a sus canales de contacto.",
+      etiquetas: ["Identidad profesional", "Servicios", "Contacto directo"],
+      url: "https://estudiocontablefretesgarcia.com.ar/"
     }
   ]
 };

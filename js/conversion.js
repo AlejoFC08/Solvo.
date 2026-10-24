@@ -8,6 +8,13 @@
     window.dispatchEvent(new CustomEvent("solvo:analytics", { detail: payload }));
   }
   track("solvo_page_view");
+  document.querySelectorAll('.projects a[target="_blank"]').forEach(function (link) {
+    link.addEventListener("click", function () {
+      var card = link.closest(".work-card");
+      var name = card && card.querySelector(".work-card__name");
+      track("solvo_project_open", { project: name ? name.textContent.trim() : "" });
+    });
+  });
   var profile = document.querySelector("[data-profile-name]");
   var photo = document.querySelector("[data-profile-photo]");
   if (profile && typeof config.nombre === "string" && config.nombre.trim()) {

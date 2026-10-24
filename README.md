@@ -62,6 +62,16 @@ configurar los eventos y las preferencias de privacidad correspondientes.
 
 No se compró ni conectó un dominio nuevo. El sitio conserva su dirección actual.
 
+## Portfolio
+
+La sección `#proyectos`, cerca del inicio, se carga desde `trabajos` en config.
+El primer proyecto ocupa la tarjeta principal en escritorio. Las capturas reales
+están en `assets/trabajos/`, guardadas como JPEG, sin iframes ni dependencias de
+servicios de capturas externos. Fecha de captura: 24 de octubre de 2026.
+Los proyectos actuales son Happy Box, NexMant y Estudio Contable Fretes García.
+Para agregar uno, sumar un objeto con imagen, cliente, tipo, descripcion,
+etiquetas y url. Cada apertura emite `solvo_project_open` con el nombre del proyecto.
+
 ## Verla en local
 
 - **Rápido:** doble clic en `index.html`.

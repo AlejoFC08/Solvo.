@@ -37,10 +37,11 @@
   <link rel="stylesheet" href="css/premium.css?v=smooth5">
   <link rel="stylesheet" href="css/scroll.css?v=smooth5">
   <link rel="stylesheet" href="css/conversion.css?v=6">
-  <script src="js/config.js" defer></script>
-  <script src="js/main.js?v=smooth5" defer></script>
+  <link rel="stylesheet" href="css/projects.css?v=7">
+  <script src="js/config.js?v=7" defer></script>
+  <script src="js/main.js?v=7" defer></script>
   <script src="js/scroll.js?v=smooth5" defer></script>
-  <script src="js/conversion.js?v=6" defer></script>
+  <script src="js/conversion.js?v=7" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -61,7 +62,7 @@
       <nav class="site-nav" aria-label="Principal">
         <ul class="nav-list" id="menu">
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#casos">Casos</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
           <li><a href="#como-trabajo">Cómo trabajo</a></li>
           <li><a class="nav-cta" href="#contacto">Contacto</a></li>
         </ul>
@@ -86,7 +87,7 @@
               Pedí un diagnóstico gratis
               <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn--outline" href="#servicios">Ver servicios</a>
+            <a class="btn btn--outline" href="#proyectos">Ver mis proyectos</a>
           </div>
           <p class="hero-note" data-hero style="--d: 5">Una charla de 30 minutos para entender qué necesitás y cómo puedo ayudarte.</p>
         </div>
@@ -179,6 +180,18 @@
             </div>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section projects" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="container">
+        <div class="projects-heading">
+          <div><p class="eyebrow">Proyectos seleccionados</p><h2 id="proyectos-titulo" data-reveal>Negocios reales.<br>Soluciones propias.</h2></div>
+          <p class="section-lead">Webs que desarrollé para presentar servicios, mostrar productos y facilitar el contacto con cada negocio. Conocé los proyectos en sus sitios publicados.</p>
+        </div>
+        <ul class="projects-grid" id="trabajos-grilla"></ul>
+        <noscript><p>Visitá los proyectos: <a href="https://nexmant.com.ar/">NexMant</a>, <a href="https://alejofc08.github.io/WebHappyBox/index.html">Happy Box</a> y <a href="https://estudiocontablefretesgarcia.com.ar/">Fretes García</a>.</p></noscript>
+        <div class="projects-note"><p>¿Tu proyecto necesita algo distinto a una web?</p><a href="#casos">Conocé el caso de automatización para un colegio <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
@@ -325,11 +338,6 @@
           </div>
         </section>
 
-        <div class="works" hidden>
-          <h3 class="works__title">Otros trabajos</h3>
-          <!-- Las tarjetas se cargan desde js/config.js (sección "trabajos"). -->
-          <ul class="works__grid" id="trabajos-grilla"></ul>
-        </div>
       </div>
     </section>
 

@@ -76,18 +76,24 @@
       var li = document.createElement("li");
       li.className = "work-card";
 
+      var preview = document.createElement("a");
+      preview.className = "project-preview";
+      preview.href = t.url;
+      preview.target = "_blank";
+      preview.rel = "noopener noreferrer";
+      preview.setAttribute("aria-label", "Visitar el sitio de " + t.cliente + " (abre en otra pestaña)");
       var img = document.createElement("img");
       img.src = t.imagen;
       img.alt = "Captura de la página web de " + t.cliente;
-      img.width = 800;
-      img.height = 500;
+      img.width = 1360;
+      img.height = 900;
       img.loading = "lazy";
       img.decoding = "async";
 
       var cuerpo = document.createElement("div");
       cuerpo.className = "work-card__body";
 
-      var nombre = document.createElement("h4");
+      var nombre = document.createElement("h3");
       nombre.className = "work-card__name";
       if (completo(t.url)) {
         var link = document.createElement("a");
@@ -104,13 +110,41 @@
       tipo.className = "work-card__type";
       tipo.textContent = t.tipo || "Página web";
 
-      cuerpo.appendChild(nombre);
       cuerpo.appendChild(tipo);
-      li.appendChild(img);
+      cuerpo.appendChild(nombre);
+      if (t.descripcion) {
+        var description = document.createElement("p");
+        description.className = "project-description";
+        description.textContent = t.descripcion;
+        cuerpo.appendChild(description);
+      }
+      if (Array.isArray(t.etiquetas)) {
+        var tags = document.createElement("ul");
+        tags.className = "project-tags";
+        t.etiquetas.forEach(function (tag) {
+          var item = document.createElement("li");
+          item.textContent = tag;
+          tags.appendChild(item);
+        });
+        cuerpo.appendChild(tags);
+      }
+      if (completo(t.url)) {
+        var visit = document.createElement("a");
+        visit.href = t.url;
+        visit.target = "_blank";
+        visit.rel = "noopener noreferrer";
+        visit.className = "project-visit";
+        visit.textContent = "Visitar sitio ↗";
+        visit.setAttribute("aria-label", "Visitar " + t.cliente + " (abre en otra pestaña)");
+        cuerpo.appendChild(visit);
+      }
+      preview.appendChild(img);
+      li.appendChild(preview);
       li.appendChild(cuerpo);
       grilla.appendChild(li);
     });
-    if (grilla.children.length) grilla.closest(".works").hidden = false;
+    var works = grilla.closest(".works");
+    if (grilla.children.length && works) works.hidden = false;
   }
 
   /* ---------- Animaciones ---------- */
