@@ -1,0 +1,28 @@
+.system-spotlight { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); background:#102344; border-radius:24px; overflow:hidden; color:#fff; margin-bottom:48px; }
+.system-spotlight__content { padding:40px; align-self:center; }
+.system-spotlight .eyebrow { color:#a9c6ff; }
+.system-spotlight h3 { font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.12; max-width:18ch; }
+.system-spotlight p:not(.eyebrow) { color:#c9d1e0; font-size:.9375rem; line-height:1.8; }
+.system-spotlight .project-tags li { border-color:#ffffff30; color:#dce6fa; }
+.system-spotlight .btn { background:#fff; border-color:#fff; color:#102344; }
+.system-spotlight .system-caption { font-size:.6875rem !important; margin:18px 0 0; }
+.system-spotlight__preview { display:block; min-width:0; padding:24px 24px 0 0; max-height:540px; overflow:hidden; }
+.system-spotlight__preview img { width:100%; height:auto; border-radius:12px 12px 0 0; }
+.portfolio-subtitle { font-size:1.3rem; margin-bottom:24px; }
+.system-depth { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:32px; }
+.system-depth h3 { font-size:1.25rem; }
+.system-depth p { color:var(--texto-suave); font-size:.9375rem; line-height:1.8; }
+.system-capabilities { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; list-style:none; margin:24px 0; }
+.system-capabilities li { border-top:2px solid #b7c9ed; padding-top:18px; }
+.system-capabilities strong,.system-capabilities span { display:block; font-size:.8125rem; }
+.system-capabilities span { color:var(--texto-suave); line-height:1.7; margin-top:10px; }
+.supporting-tools { background:#f4f6fa; }
+.tools-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-top:32px; }
+.tool-card { display:flex; flex-direction:column; min-width:0; padding:28px; border:1px solid var(--borde); border-radius:20px; background:#fff; }
+.tool-number { color:#4268ad; font-size:2rem; margin-bottom:24px; }
+.tool-card h3 { font-size:1.35rem; }
+.tool-card > p { font-size:.875rem; color:var(--texto-suave); line-height:1.8; }
+.system-demo-link { display:inline-flex; align-items:center; min-height:44px; padding-block:12px; font-size:.875rem; text-underline-offset:4px; }
+.system-caption { font-size:.75rem; line-height:1.7; color:var(--texto-suave); }
+.tool-card > a { margin-top:auto; padding-top:16px; min-height:44px; font-size:.75rem; line-height:1.7; text-underline-offset:4px; }
+@media(max-width:767px) { .system-spotlight,.system-depth,.tools-grid { grid-template-columns:minmax(0,1fr); } .system-spotlight__content { padding:24px; } .system-spotlight__preview { padding:0 20px; max-height:330px; } .system-capabilities { grid-template-columns:1fr 1fr; gap:20px 16px; } .tool-card { padding:24px; } }

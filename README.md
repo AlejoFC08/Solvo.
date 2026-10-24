@@ -72,6 +72,16 @@ Los proyectos actuales son Happy Box, NexMant y Estudio Contable Fretes García.
 Para agregar uno, sumar un objeto con imagen, cliente, tipo, descripcion,
 etiquetas y url. Cada apertura emite `solvo_project_open` con el nombre del proyecto.
 
+El proyecto principal es el sistema de recibos de sueldo. Su descripción se
+basa en la guía de la copia de portfolio, revisada el 24 de octubre de 2026.
+La captura `sistema-recibos.jpg` muestra solo el panel de ejemplo, con directorio
+vacío y contadores en cero; excluye la cuenta de Google y sus barras de usuario.
+El sistema registra envíos: un estado enviado no certifica lectura ni recepción.
+El usuario confirmó que los cuatro archivos son demos sin datos para su portfolio
+personal y autorizó sus enlaces públicos. Las tres herramientas y el sistema
+principal tienen enlaces a sus copias de demostración. No se cambiaron permisos
+ni contenido de las planillas.
+
 ## Verla en local
 
 - **Rápido:** doble clic en `index.html`.

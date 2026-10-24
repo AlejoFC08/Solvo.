@@ -38,10 +38,11 @@
   <link rel="stylesheet" href="css/scroll.css?v=smooth5">
   <link rel="stylesheet" href="css/conversion.css?v=6">
   <link rel="stylesheet" href="css/projects.css?v=7">
+  <link rel="stylesheet" href="css/systems.css?v=8">
   <script src="js/config.js?v=7" defer></script>
   <script src="js/main.js?v=7" defer></script>
   <script src="js/scroll.js?v=smooth5" defer></script>
-  <script src="js/conversion.js?v=7" defer></script>
+  <script src="js/conversion.js?v=8" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -187,8 +188,20 @@
       <div class="container">
         <div class="projects-heading">
           <div><p class="eyebrow">Proyectos seleccionados</p><h2 id="proyectos-titulo" data-reveal>Negocios reales.<br>Soluciones propias.</h2></div>
-          <p class="section-lead">Webs que desarrollé para presentar servicios, mostrar productos y facilitar el contacto con cada negocio. Conocé los proyectos en sus sitios publicados.</p>
+          <p class="section-lead">Desde un sistema para gestionar recibos de sueldo hasta webs para negocios reales. Proyectos que combinan desarrollo, organización de datos y soluciones a medida.</p>
         </div>
+        <article class="system-spotlight">
+          <div class="system-spotlight__content">
+            <p class="eyebrow">Proyecto principal · Automatización</p>
+            <h3>Gestión y envío de recibos de sueldo</h3>
+            <p>Un proceso completo para un colegio: preparar recibos individuales desde un PDF, revisar personas y destinatarios, confirmar el envío y conservar su historial.</p>
+            <ul class="project-tags"><li>Google Sheets</li><li>PDF</li><li>Drive</li><li>Gmail</li></ul>
+            <a class="btn btn--primary" href="#casos">Conocer el sistema <span aria-hidden="true">↗</span></a>
+            <p class="system-caption">Captura real de la copia de portfolio, sin datos de empleados.</p>
+          </div>
+          <a class="system-spotlight__preview" href="#casos" aria-label="Conocer el sistema de recibos de sueldo"><img src="assets/trabajos/sistema-recibos.jpg" alt="Panel de ejemplo de gestión de recibos con directorio vacío y contadores en cero" width="963" height="1000" loading="lazy" decoding="async"></a>
+        </article>
+        <h3 class="portfolio-subtitle">Webs para negocios reales</h3>
         <ul class="projects-grid" id="trabajos-grilla"></ul>
         <noscript><p>Visitá los proyectos: <a href="https://nexmant.com.ar/">NexMant</a>, <a href="https://alejofc08.github.io/WebHappyBox/index.html">Happy Box</a> y <a href="https://estudiocontablefretesgarcia.com.ar/">Fretes García</a>.</p></noscript>
         <div class="projects-note"><p>¿Tu proyecto necesita algo distinto a una web?</p><a href="#casos">Conocé el caso de automatización para un colegio <span aria-hidden="true">↗</span></a></div>
@@ -262,14 +275,21 @@
     <!-- 4. Caso real -->
     <section class="section section--white" id="casos" aria-labelledby="caso-titulo">
       <div class="container">
-        <p class="eyebrow" data-reveal>Caso real</p>
-        <h2 id="caso-titulo" data-reveal style="--d: 1">Recibos de sueldo para un colegio, en minutos</h2>
+        <p class="eyebrow" data-reveal>Proyecto principal · Sistema a medida</p>
+        <h2 id="caso-titulo" data-reveal style="--d: 1">Mucho más que enviar un PDF.</h2>
         <p class="section-lead" data-reveal style="--d: 2">Al colegio le llegaba un único PDF con los recibos de todo el personal. Había que separarlo y mandarlo uno por uno.</p>
+        <div class="system-depth">
+          <div><h3>El desafío</h3><p>Identificar a cada persona, reunir sus páginas en un recibo, vincularlo con su correo y evitar que una preparación incompleta termine en un envío incorrecto.</p></div>
+          <div><h3>La solución</h3><p>Un panel en Google Sheets que organiza el directorio, prepara los documentos en Drive y permite revisar destinatarios y adjuntos antes de confirmar los envíos desde Gmail.</p></div>
+        </div>
+        <ul class="system-capabilities"><li><strong>Directorio por nivel</strong><span>Altas, bajas y correos principales o secundarios.</span></li><li><strong>Revisión antes de enviar</strong><span>Personas, períodos, páginas y archivos individuales.</span></li><li><strong>Control del proceso</strong><span>Reintentos y reanudación de preparaciones pendientes.</span></li><li><strong>Historial consultable</strong><span>Registro de liquidaciones, intentos y resultados.</span></li></ul>
+        <a class="system-demo-link" href="https://docs.google.com/spreadsheets/d/1zKtE4GfEh0wh0r41DDaHE5PE_omH10w5tu3Kq075ejM/edit?gid=1582274007#gid=1582274007" target="_blank" rel="noopener noreferrer">Explorar la demo en Google Sheets ↗</a>
+        <p class="system-caption">Copia de presentación para el portfolio, sin datos reales de empleados.</p>
 
         <!-- Animación del proceso automatizado (se activa al llegar a la vista) -->
         <div class="scroll-scene">
         <div class="scroll-scene__sticky">
-        <p class="scroll-scene__label">Del archivo a la confirmación <span aria-hidden="true">↓ Seguí bajando</span></p>
+        <p class="scroll-scene__label">Del archivo al historial de envíos <span aria-hidden="true">↓ Seguí bajando</span></p>
         <ol class="flow" data-reveal="flow" aria-label="Cómo funciona el sistema">
           <li class="flow__step" style="--i: 0">
             <span class="flow__icon" aria-hidden="true">
@@ -289,14 +309,14 @@
             <span class="flow__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
             </span>
-            <p><strong>Se envía por mail</strong> a cada persona</p>
+            <p><strong>Revisión y envío</strong> con confirmación manual de destinatarios y adjuntos</p>
             <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
           </li>
           <li class="flow__step" style="--i: 3">
             <span class="flow__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg>
             </span>
-            <p><strong>Confirmación</strong> de recepción de cada recibo</p>
+            <p><strong>Historial</strong> de intentos y resultados del envío</p>
           </li>
         </ol>
         <div class="scene-progress" aria-hidden="true"><span></span></div>
@@ -306,15 +326,15 @@
         <div class="compare">
           <article class="compare__card compare__card--before" data-reveal="left">
             <h3>Antes</h3>
-            <p>Separar el PDF a mano, buscar el mail de cada empleado y enviar los recibos de a uno, sin saber quién los había recibido.</p>
+            <p>Separar el PDF a mano, buscar el mail de cada empleado y enviar los recibos de a uno, con el seguimiento disperso entre archivos y correos.</p>
           </article>
           <article class="compare__card compare__card--after" data-reveal="right" style="--d: 1">
             <h3>Después</h3>
-            <p>Se sube el PDF, el sistema reconoce a cada empleado, separa su recibo y lo envía por mail con un botón de confirmación de recepción.</p>
+            <p>Se carga el PDF, se preparan los recibos individuales y se revisan personas, archivos y correos. El envío requiere una confirmación manual y deja un historial consultable.</p>
           </article>
         </div>
 
-        <p class="case-outcome" data-reveal><strong>Todo el proceso, en un mismo lugar:</strong> separar los recibos, enviarlos y consultar las confirmaciones de recepción.</p>
+        <p class="case-outcome" data-reveal><strong>Preparación, revisión y seguimiento en un mismo lugar.</strong> El estado «Enviado» indica que Gmail aceptó el correo; no confirma lectura ni recepción.</p>
 
         <section class="case-demo" aria-labelledby="demo-titulo">
           <div class="case-demo__intro">
@@ -338,6 +358,19 @@
           </div>
         </section>
 
+      </div>
+    </section>
+
+    <section class="section supporting-tools" aria-labelledby="herramientas-titulo">
+      <div class="container">
+        <p class="eyebrow">Más soluciones a medida</p>
+        <h2 id="herramientas-titulo" data-reveal>También resuelvo lo cotidiano.</h2>
+        <p class="section-lead">Herramientas que desarrollé para organizar el trabajo administrativo y académico.</p>
+        <div class="tools-grid">
+          <article class="tool-card"><span class="tool-number" aria-hidden="true">01</span><h3>Gestión de asistencia</h3><p>Hojas por curso conectadas a una configuración común, con seguimiento de faltas y alertas al superar el límite establecido.</p><ul class="project-tags"><li>Google Sheets</li><li>Lógica condicional</li></ul><a href="https://docs.google.com/spreadsheets/d/19ACF92runr4h584cfvosrfeI_28gmNPtvJZwFxZaHrw/edit?gid=1358719739#gid=1358719739" target="_blank" rel="noopener noreferrer">Ver demo de asistencia ↗</a></article>
+          <article class="tool-card"><span class="tool-number" aria-hidden="true">02</span><h3>Informes académicos</h3><p>Cruce de datos de las materias para generar un boletín por alumno y simplificar la preparación de informes.</p><ul class="project-tags"><li>Cruce de datos</li><li>Reportes</li></ul><a href="https://docs.google.com/spreadsheets/d/1BJjjtTY0UTiN0-pSJJOjrJ8T5IOenZutsVk8rzSbbas/edit?gid=40498718#gid=40498718" target="_blank" rel="noopener noreferrer">Ver demo de informes ↗</a></article>
+          <article class="tool-card"><span class="tool-number" aria-hidden="true">03</span><h3>Registro de sanciones</h3><p>Seguimiento individual de incidencias, resumen global y una vista de impresión para generar el documento formal.</p><ul class="project-tags"><li>Trazabilidad</li><li>Impresión dinámica</li></ul><a href="https://docs.google.com/spreadsheets/d/1vSXauGo4Yr0sD_HwxplYufvDd3igNPvVMz1o4vU5hWk/edit?gid=127914283#gid=127914283" target="_blank" rel="noopener noreferrer">Ver demo de sanciones ↗</a></article>
+        </div>
       </div>
     </section>
 

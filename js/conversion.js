@@ -45,9 +45,9 @@
   });
   var next = document.getElementById("demo-next");
   var step = 0;
-  var titles = ["01 / Archivo de ejemplo", "02 / Recibos separados", "03 / Envío simulado", "04 / Recepción simulada"];
-  var statuses = ["Empezá para ver cómo un archivo se convierte en tres recibos individuales.", "Cada persona tiene su recibo individual. Este ejemplo no procesa archivos reales.", "En el sistema real, cada recibo se envía a su destinatario. En esta demostración no se envió ningún mail.", "Ejemplo de seguimiento: dos personas confirmaron y una sigue pendiente. Todos los datos son ficticios."];
-  var buttons = ["Iniciar demostración", "Simular envío", "Ver confirmaciones", "Reiniciar demostración"];
+  var titles = ["01 / Archivo de ejemplo", "02 / Preparación y revisión", "03 / Envío simulado", "04 / Historial simulado"];
+  var statuses = ["Empezá para ver cómo un archivo se convierte en tres recibos individuales.", "Antes de enviar, se revisan personas, períodos, páginas y correos. Este ejemplo no procesa archivos reales.", "En el sistema real, una persona revisa el resumen y confirma el envío. En esta demostración no se envió ningún mail.", "Ejemplo ficticio de historial: dos envíos aceptados y uno pendiente. Un envío aceptado no confirma lectura ni recepción."];
+  var buttons = ["Iniciar demostración", "Confirmar envío simulado", "Ver historial", "Reiniciar demostración"];
   if (next) next.addEventListener("click", function () {
     step = (step + 1) % 4;
     document.getElementById("demo-step").textContent = titles[step];
@@ -56,7 +56,7 @@
     document.querySelector(".demo-document").hidden = step !== 0;
     document.getElementById("demo-records").hidden = step === 0;
     document.querySelectorAll(".demo-records li").forEach(function (row, index) {
-      row.querySelector("strong").textContent = step === 3 ? (index < 2 ? "Confirmado" : "Sin confirmar") : step === 2 ? "Envío simulado" : "Separado";
+      row.querySelector("strong").textContent = step === 3 ? (index < 2 ? "Aceptado · ejemplo" : "Pendiente · ejemplo") : step === 2 ? "Envío simulado" : "Para revisar";
       row.classList.remove("demo-updated");
       window.requestAnimationFrame(function () { row.classList.add("demo-updated"); });
     });
