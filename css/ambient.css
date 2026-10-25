@@ -1,0 +1,28 @@
+.ambient-canvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:.8; }
+.home .hero__grid { z-index:1; }
+.ambient-symbol { position:absolute; top:20px; right:22px; width:26px; height:26px; border:1px solid #b8cbee; border-radius:50%; pointer-events:none; animation:symbol-float 5s ease-in-out infinite; }
+.ambient-symbol::before { content:""; position:absolute; inset:6px; border:1px solid #7298e4; border-radius:2px; animation:symbol-turn 14s linear infinite; }
+.ambient-symbol::after { content:""; position:absolute; width:5px; height:5px; left:-2px; top:10px; border-radius:50%; background:#6e96e7; }
+.ambient-symbol--1 { animation-delay:-2.5s; border-radius:8px; }
+.ambient-symbol--1::before { border-radius:50%; }
+.home .service-tag { padding-right:30px; }
+.home-featured__image::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 35%,#91b4ff26 48%,#b6d1ff5c 50%,transparent 55%); transform:translate3d(0,-100%,0); animation:project-scan 7s ease-in-out infinite; }
+.home-webs > a > span:last-child { animation:arrow-breathe 4s ease-in-out infinite; }
+.home-webs > a:nth-child(2) > span:last-child { animation-delay:-1.3s; }
+.home-webs > a:nth-child(3) > span:last-child { animation-delay:-2.6s; }
+@keyframes symbol-float { 50% { transform:translate3d(0,-6px,0); } }
+@keyframes symbol-turn { to { transform:rotate(360deg); } }
+@keyframes project-scan { 0%,15% { transform:translate3d(0,-100%,0); } 65%,100% { transform:translate3d(0,100%,0); } }
+@keyframes arrow-breathe { 50% { background:#ecf2ff; border-color:#a6bce8; } }
+/* En navegadores compatibles, los acentos siguen al scroll sin JavaScript adicional. */
+@supports(animation-timeline:view()) {
+  .home-services .ambient-symbol { animation:symbol-scroll linear both; animation-timeline:view(); animation-range:entry 0% exit 100%; }
+  @keyframes symbol-scroll { from { transform:translateY(8px) rotate(-25deg); } to { transform:translateY(-12px) rotate(90deg); } }
+}
+@media(max-width:767px) {
+  .ambient-canvas { opacity:.55; }
+  .ambient-symbol { width:22px; height:22px; top:22px; right:20px; }
+  .ambient-symbol::before { inset:5px; }
+  .home-featured__image::after { animation-duration:9s; }
+  .home-webs > a > span:last-child { animation:none; }
+}
