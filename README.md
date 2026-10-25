@@ -1,6 +1,6 @@
 # Solvo. — sitio web
 
-Landing de una sola página en HTML, CSS y JavaScript, sin frameworks ni build.
+Sitio en HTML, CSS y JavaScript, sin frameworks ni build. El inicio es breve y el portfolio completo vive en proyectos.html.
 
 ## Estructura
 
@@ -98,3 +98,10 @@ en las 3 líneas `canonical`, `og:url` y `og:image` del `<head>` de `index.html`
 
 Detalles de configuración en Netlify: build command vacío, publish directory `.`,
 y visibilidad del proyecto en **Public** (General → Visitor access).
+
+## Navegación resumida
+
+index.html: presentación, dos servicios, selección breve de proyectos, proceso y contacto.
+proyectos.html: portfolio completo, sistema principal, demo interactiva, herramientas y preguntas frecuentes.
+css/layout.css: tamaños compactos del inicio y navegación entre páginas.
+Los enlaces antiguos a #casos, #demo-titulo, #herramientas-titulo y #preguntas desde el inicio se redirigen al portfolio.

@@ -42,13 +42,11 @@
   <script src="js/config.js?v=7" defer></script>
   <script src="js/main.js?v=7" defer></script>
   <script src="js/scroll.js?v=smooth5" defer></script>
-  <script src="js/conversion.js?v=8" defer></script>
+  <script src="js/conversion.js?v=9" defer></script>
+  <link rel="stylesheet" href="css/layout.css?v=9">
 </head>
-<body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
-  <!-- 1. Encabezado -->
-  <header class="site-header">
+<body class="home">
+<a class="skip-link" href="#contenido">Saltar al contenido</a><header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="Solvo., ir al inicio">
         <img src="assets/logo-header.svg" alt="Solvo." width="146" height="37">
@@ -63,7 +61,7 @@
       <nav class="site-nav" aria-label="Principal">
         <ul class="nav-list" id="menu">
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
           <li><a href="#como-trabajo">Cómo trabajo</a></li>
           <li><a class="nav-cta" href="#contacto">Contacto</a></li>
         </ul>
@@ -71,10 +69,7 @@
     </div>
     <div class="scroll-progress" aria-hidden="true"></div>
   </header>
-
-  <main id="contenido">
-    <!-- 2. Hero -->
-    <section class="hero section--dark" id="inicio" aria-labelledby="hero-titulo">
+<main id="contenido"><section class="hero section--dark" id="inicio" aria-labelledby="hero-titulo">
       <div class="container hero__grid">
         <div class="hero__content">
           <p class="eyebrow" data-hero style="--d: 0">Webs · Automatización · Sistemas a medida</p>
@@ -82,15 +77,15 @@
             <span class="line"><span data-hero style="--d: 1">Tu negocio,</span></span>
             <span class="line"><span data-hero style="--d: 2">un paso adelante.</span></span>
           </h1>
-          <p class="lead" data-hero style="--d: 3">Una web que represente lo que hacés. Sistemas que te devuelvan tiempo. Desarrollo soluciones a medida para que puedas enfocarte en tu negocio.</p>
+          <p class="lead" data-hero style="--d: 3">Desarrollo webs y automatizaciones a medida para que tu negocio se vea mejor y trabaje más simple.</p>
           <div class="actions" data-hero style="--d: 4">
             <a class="btn btn--primary" href="#contacto">
               Pedí un diagnóstico gratis
               <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn--outline" href="#proyectos">Ver mis proyectos</a>
+            <a class="btn btn--outline" href="proyectos.html">Ver mis proyectos</a>
           </div>
-          <p class="hero-note" data-hero style="--d: 5">Una charla de 30 minutos para entender qué necesitás y cómo puedo ayudarte.</p>
+          <p class="hero-note" data-hero style="--d: 5">Diagnóstico gratis · Trato directo · Buenos Aires</p>
         </div>
 
         <!-- Ilustración: las dos piezas de la S encajan y conectan tus herramientas -->
@@ -146,290 +141,14 @@
           </svg>
         </div>
       </div>
-    </section>
-
-    <!-- Franja de confianza -->
-    <section class="trust" aria-label="Qué podés esperar">
-      <div class="container">
-        <ul class="trust__list">
-          <li class="trust__item" data-reveal style="--d: 0">
-            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
-            <div>
-              <strong>Diagnóstico gratis</strong>
-              <span>30 minutos para entender qué necesitás.</span>
-            </div>
-          </li>
-          <li class="trust__item" data-reveal style="--d: 1">
-            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
-            <div>
-              <strong>Trato directo</strong>
-              <span>Hablás conmigo desde la primera charla.</span>
-            </div>
-          </li>
-          <li class="trust__item" data-reveal style="--d: 2">
-            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M3.5 14.5h17M9.5 4v16"/></svg>
-            <div>
-              <strong>Con lo que ya usás</strong>
-              <span>Google, Excel y mail, sin cambiar de herramientas.</span>
-            </div>
-          </li>
-          <li class="trust__item" data-reveal style="--d: 3">
-            <svg class="trust__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
-            <div>
-              <strong>Probado y con soporte</strong>
-              <span>Lo probamos juntos y te acompaño después.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section projects" id="proyectos" aria-labelledby="proyectos-titulo">
-      <div class="container">
-        <div class="projects-heading">
-          <div><p class="eyebrow">Proyectos seleccionados</p><h2 id="proyectos-titulo" data-reveal>Negocios reales.<br>Soluciones propias.</h2></div>
-          <p class="section-lead">Desde un sistema para gestionar recibos de sueldo hasta webs para negocios reales. Proyectos que combinan desarrollo, organización de datos y soluciones a medida.</p>
-        </div>
-        <article class="system-spotlight">
-          <div class="system-spotlight__content">
-            <p class="eyebrow">Proyecto principal · Automatización</p>
-            <h3>Gestión y envío de recibos de sueldo</h3>
-            <p>Un proceso completo para un colegio: preparar recibos individuales desde un PDF, revisar personas y destinatarios, confirmar el envío y conservar su historial.</p>
-            <ul class="project-tags"><li>Google Sheets</li><li>PDF</li><li>Drive</li><li>Gmail</li></ul>
-            <a class="btn btn--primary" href="#casos">Conocer el sistema <span aria-hidden="true">↗</span></a>
-            <p class="system-caption">Captura real de la copia de portfolio, sin datos de empleados.</p>
-          </div>
-          <a class="system-spotlight__preview" href="#casos" aria-label="Conocer el sistema de recibos de sueldo"><img src="assets/trabajos/sistema-recibos.jpg" alt="Panel de ejemplo de gestión de recibos con directorio vacío y contadores en cero" width="963" height="1000" loading="lazy" decoding="async"></a>
-        </article>
-        <h3 class="portfolio-subtitle">Webs para negocios reales</h3>
-        <ul class="projects-grid" id="trabajos-grilla"></ul>
-        <noscript><p>Visitá los proyectos: <a href="https://nexmant.com.ar/">NexMant</a>, <a href="https://alejofc08.github.io/WebHappyBox/index.html">Happy Box</a> y <a href="https://estudiocontablefretesgarcia.com.ar/">Fretes García</a>.</p></noscript>
-        <div class="projects-note"><p>¿Tu proyecto necesita algo distinto a una web?</p><a href="#casos">Conocé el caso de automatización para un colegio <span aria-hidden="true">↗</span></a></div>
-      </div>
-    </section>
-
-    <div class="motion-band" aria-hidden="true">
-      <div class="motion-band__track">Menos tareas. <span>Más posibilidades.</span> Menos tareas. <span>Más posibilidades.</span></div>
-    </div>
-
-    <!-- 3. Servicios -->
-    <section class="section section--neutral" id="servicios" aria-labelledby="servicios-titulo">
-      <div class="container">
-        <p class="eyebrow" data-reveal>Servicios</p>
-        <h2 id="servicios-titulo" data-reveal style="--d: 1">Soluciones que encajan con tu negocio</h2>
-
-        <div class="services">
-          <article class="card" data-reveal style="--d: 0">
-            <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <rect x="2.5" y="4" width="19" height="16" rx="2"/>
-              <path d="M2.5 8.5h19"/>
-              <path d="M5.5 6.25h.01M8 6.25h.01"/>
-              <path d="M6 12.5h7M6 15.5h4.5"/>
-            </svg>
-            <p class="service-tag">Para presentar tu negocio</p>
-            <h3>Necesito una web</h3>
-            <p>Tu negocio en internet: una web clara, rápida y que se ve bien en el celular, pensada para que te contacten.</p>
-            <ul class="check-list">
-              <li>Landing pages y sitios institucionales</li>
-              <li>Botón de WhatsApp y formularios de contacto</li>
-              <li>Diseño adaptado a tu marca</li>
-            </ul>
-            <p class="service-example">Ideal para un comercio, un profesional o una institución que necesita mostrar lo que hace y recibir consultas.</p>
-            <a class="service-link" href="#contacto" data-service="web">Quiero una web <span aria-hidden="true">↗</span></a>
-          </article>
-
-          <article class="card" data-reveal style="--d: 2">
-            <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M4 7h11"/>
-              <path d="M12 4l3 3-3 3"/>
-              <path d="M20 17H9"/>
-              <path d="M12 14l-3 3 3 3"/>
-              <circle cx="19" cy="7" r="2"/>
-              <circle cx="5" cy="17" r="2"/>
-            </svg>
-            <p class="service-tag">Para simplificar tu día a día</p>
-            <h3>Quiero automatizar una tarea</h3>
-            <p>Si hay una tarea que hacés a mano todos los meses, probablemente se pueda automatizar. Te armo la solución para tu caso.</p>
-            <ul class="check-list">
-              <li>Envíos automáticos de mails y documentos</li>
-              <li>Planillas inteligentes con Google Sheets y Excel</li>
-              <li>Pequeños sistemas de gestión para tu equipo</li>
-            </ul>
-            <p class="service-example">Por ejemplo: enviar documentos, organizar una planilla o dejar de copiar los mismos datos todos los meses.</p>
-            <a class="service-link" href="#contacto" data-service="automatizacion">Quiero ahorrar tiempo <span aria-hidden="true">↗</span></a>
-          </article>
-        </div>
-
-        <aside class="about" aria-labelledby="sobre-titulo" data-reveal>
-          <div>
-            <p class="eyebrow">Sobre Solvo</p>
-            <h3 id="sobre-titulo">Detrás de cada solución, una persona.</h3>
-            <p class="about-identity" data-profile-name hidden></p>
-            <img class="about-photo" data-profile-photo hidden alt="" width="160" height="160" loading="lazy">
-          </div>
-          <div class="about-story"><p>Solvo es mi emprendimiento de soluciones digitales en Buenos Aires. Me involucro en cada proyecto: escucho cómo trabajás, desarrollo la solución y la probamos juntos.</p><p>No necesitás llegar con una idea técnica. Podés empezar con una tarea que te lleva demasiado tiempo o con las ganas de mostrar mejor tu negocio.</p><ul class="about-promises"><li>Alcance, tiempos y precio antes de empezar.</li><li>Comunicación directa durante el desarrollo.</li><li>Pruebas y condiciones de soporte acordadas.</li></ul></div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- 4. Caso real -->
-    <section class="section section--white" id="casos" aria-labelledby="caso-titulo">
-      <div class="container">
-        <p class="eyebrow" data-reveal>Proyecto principal · Sistema a medida</p>
-        <h2 id="caso-titulo" data-reveal style="--d: 1">Mucho más que enviar un PDF.</h2>
-        <p class="section-lead" data-reveal style="--d: 2">Al colegio le llegaba un único PDF con los recibos de todo el personal. Había que separarlo y mandarlo uno por uno.</p>
-        <div class="system-depth">
-          <div><h3>El desafío</h3><p>Identificar a cada persona, reunir sus páginas en un recibo, vincularlo con su correo y evitar que una preparación incompleta termine en un envío incorrecto.</p></div>
-          <div><h3>La solución</h3><p>Un panel en Google Sheets que organiza el directorio, prepara los documentos en Drive y permite revisar destinatarios y adjuntos antes de confirmar los envíos desde Gmail.</p></div>
-        </div>
-        <ul class="system-capabilities"><li><strong>Directorio por nivel</strong><span>Altas, bajas y correos principales o secundarios.</span></li><li><strong>Revisión antes de enviar</strong><span>Personas, períodos, páginas y archivos individuales.</span></li><li><strong>Control del proceso</strong><span>Reintentos y reanudación de preparaciones pendientes.</span></li><li><strong>Historial consultable</strong><span>Registro de liquidaciones, intentos y resultados.</span></li></ul>
-        <a class="system-demo-link" href="https://docs.google.com/spreadsheets/d/1zKtE4GfEh0wh0r41DDaHE5PE_omH10w5tu3Kq075ejM/edit?gid=1582274007#gid=1582274007" target="_blank" rel="noopener noreferrer">Explorar la demo en Google Sheets ↗</a>
-        <p class="system-caption">Copia de presentación para el portfolio, sin datos reales de empleados.</p>
-
-        <!-- Animación del proceso automatizado (se activa al llegar a la vista) -->
-        <div class="scroll-scene">
-        <div class="scroll-scene__sticky">
-        <p class="scroll-scene__label">Del archivo al historial de envíos <span aria-hidden="true">↓ Seguí bajando</span></p>
-        <ol class="flow" data-reveal="flow" aria-label="Cómo funciona el sistema">
-          <li class="flow__step" style="--i: 0">
-            <span class="flow__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 15h6M9 18h4"/></svg>
-            </span>
-            <p><strong>Un solo PDF</strong> con los recibos de todo el personal</p>
-            <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
-          </li>
-          <li class="flow__step" style="--i: 1">
-            <span class="flow__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M4 6h7v9H4zM13 9h7v9h-7z"/><path d="M6.5 9.5h2M6.5 12h2M15.5 12.5h2M15.5 15h2"/></svg>
-            </span>
-            <p><strong>Se separa</strong> un recibo para cada empleado</p>
-            <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
-          </li>
-          <li class="flow__step" style="--i: 2">
-            <span class="flow__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
-            </span>
-            <p><strong>Revisión y envío</strong> con confirmación manual de destinatarios y adjuntos</p>
-            <span class="flow__link" aria-hidden="true"><span class="flow__packet"></span></span>
-          </li>
-          <li class="flow__step" style="--i: 3">
-            <span class="flow__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg>
-            </span>
-            <p><strong>Historial</strong> de intentos y resultados del envío</p>
-          </li>
-        </ol>
-        <div class="scene-progress" aria-hidden="true"><span></span></div>
-        </div>
-        </div>
-
-        <div class="compare">
-          <article class="compare__card compare__card--before" data-reveal="left">
-            <h3>Antes</h3>
-            <p>Separar el PDF a mano, buscar el mail de cada empleado y enviar los recibos de a uno, con el seguimiento disperso entre archivos y correos.</p>
-          </article>
-          <article class="compare__card compare__card--after" data-reveal="right" style="--d: 1">
-            <h3>Después</h3>
-            <p>Se carga el PDF, se preparan los recibos individuales y se revisan personas, archivos y correos. El envío requiere una confirmación manual y deja un historial consultable.</p>
-          </article>
-        </div>
-
-        <p class="case-outcome" data-reveal><strong>Preparación, revisión y seguimiento en un mismo lugar.</strong> El estado «Enviado» indica que Gmail aceptó el correo; no confirma lectura ni recepción.</p>
-
-        <section class="case-demo" aria-labelledby="demo-titulo">
-          <div class="case-demo__intro">
-            <p class="eyebrow">Probá el recorrido</p>
-            <h3 id="demo-titulo">Así se simplifica la entrega de recibos</h3>
-            <p>Una demostración ilustrativa del proceso, con datos ficticios. No es una captura del sistema del colegio y no envía correos.</p>
-            <button class="btn btn--primary" type="button" id="demo-next">Iniciar demostración</button>
-          </div>
-          <div class="demo-screen">
-            <div class="demo-screen__bar"><span class="demo-dots" aria-hidden="true">● ● ●</span><span>Solvo / Ejemplo de automatización</span></div>
-            <div class="demo-screen__body">
-              <p class="demo-step" id="demo-step">01 / Archivo de ejemplo</p>
-              <div class="demo-document" aria-hidden="true"><span>PDF</span><strong>recibos-ejemplo.pdf</strong><small>3 recibos ficticios en un archivo</small></div>
-              <ul class="demo-records" id="demo-records" hidden>
-                <li><span>Persona A <small>persona-a@example.com</small></span><strong>Pendiente</strong></li>
-                <li><span>Persona B <small>persona-b@example.com</small></span><strong>Pendiente</strong></li>
-                <li><span>Persona C <small>persona-c@example.com</small></span><strong>Pendiente</strong></li>
-              </ul>
-              <p class="demo-status" id="demo-status" role="status" aria-live="polite" aria-atomic="true">Empezá para ver cómo un archivo se convierte en tres recibos individuales.</p>
-            </div>
-          </div>
-        </section>
-
-      </div>
-    </section>
-
-    <section class="section supporting-tools" aria-labelledby="herramientas-titulo">
-      <div class="container">
-        <p class="eyebrow">Más soluciones a medida</p>
-        <h2 id="herramientas-titulo" data-reveal>También resuelvo lo cotidiano.</h2>
-        <p class="section-lead">Herramientas que desarrollé para organizar el trabajo administrativo y académico.</p>
-        <div class="tools-grid">
-          <article class="tool-card"><span class="tool-number" aria-hidden="true">01</span><h3>Gestión de asistencia</h3><p>Hojas por curso conectadas a una configuración común, con seguimiento de faltas y alertas al superar el límite establecido.</p><ul class="project-tags"><li>Google Sheets</li><li>Lógica condicional</li></ul><a href="https://docs.google.com/spreadsheets/d/19ACF92runr4h584cfvosrfeI_28gmNPtvJZwFxZaHrw/edit?gid=1358719739#gid=1358719739" target="_blank" rel="noopener noreferrer">Ver demo de asistencia ↗</a></article>
-          <article class="tool-card"><span class="tool-number" aria-hidden="true">02</span><h3>Informes académicos</h3><p>Cruce de datos de las materias para generar un boletín por alumno y simplificar la preparación de informes.</p><ul class="project-tags"><li>Cruce de datos</li><li>Reportes</li></ul><a href="https://docs.google.com/spreadsheets/d/1BJjjtTY0UTiN0-pSJJOjrJ8T5IOenZutsVk8rzSbbas/edit?gid=40498718#gid=40498718" target="_blank" rel="noopener noreferrer">Ver demo de informes ↗</a></article>
-          <article class="tool-card"><span class="tool-number" aria-hidden="true">03</span><h3>Registro de sanciones</h3><p>Seguimiento individual de incidencias, resumen global y una vista de impresión para generar el documento formal.</p><ul class="project-tags"><li>Trazabilidad</li><li>Impresión dinámica</li></ul><a href="https://docs.google.com/spreadsheets/d/1vSXauGo4Yr0sD_HwxplYufvDd3igNPvVMz1o4vU5hWk/edit?gid=127914283#gid=127914283" target="_blank" rel="noopener noreferrer">Ver demo de sanciones ↗</a></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Cómo trabajo -->
-    <section class="section section--neutral" id="como-trabajo" aria-labelledby="proceso-titulo">
-      <div class="container">
-        <p class="eyebrow" data-reveal>Cómo trabajo</p>
-        <h2 id="proceso-titulo" data-reveal style="--d: 1">Simple, de principio a fin</h2>
-
-        <ol class="steps" data-reveal="steps">
-          <li class="step" style="--i: 0">
-            <span class="step__num" aria-hidden="true">01</span>
-            <h3>Diagnóstico gratis</h3>
-            <p>Charlamos 30 minutos sobre qué tareas te quitan más tiempo.</p>
-          </li>
-          <li class="step" style="--i: 1">
-            <span class="step__num" aria-hidden="true">02</span>
-            <h3>Propuesta</h3>
-            <p>Te muestro qué se puede hacer, en cuánto tiempo y a qué precio.</p>
-          </li>
-          <li class="step" style="--i: 2">
-            <span class="step__num" aria-hidden="true">03</span>
-            <h3>Desarrollo</h3>
-            <p>Lo construyo y lo probamos juntos hasta que funcione como necesitás.</p>
-          </li>
-          <li class="step" style="--i: 3">
-            <span class="step__num" aria-hidden="true">04</span>
-            <h3>Soporte</h3>
-            <p>Te acompaño después de la entrega con ajustes y mantenimiento.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section faq-section" id="preguntas" aria-labelledby="faq-titulo">
-      <div class="container faq-layout">
-        <div data-reveal>
-          <p class="eyebrow">Sin vueltas</p>
-          <h2 id="faq-titulo">Las cosas claras, desde el inicio.</h2>
-          <p class="section-lead">Cada negocio es distinto. El primer paso es entender el tuyo.</p>
-        </div>
-        <div class="faq-list" data-reveal style="--d: 1">
-          <details><summary>¿Cuánto cuesta un proyecto?<span aria-hidden="true">+</span></summary><p>Depende de lo que necesites. Después del diagnóstico, te presento una propuesta con el alcance, los tiempos y el precio para que puedas decidir antes de empezar.</p></details>
-          <details><summary>¿Necesito saber de tecnología?<span aria-hidden="true">+</span></summary><p>No. Me contás cómo trabajás y qué querés resolver. Te explico las opciones en palabras claras y probamos juntos la solución.</p></details>
-          <details><summary>¿Tengo que cambiar mis herramientas?<span aria-hidden="true">+</span></summary><p>La idea es aprovechar lo que ya usás, como Google Sheets, Excel y mail. Si tu proyecto necesita otra herramienta, lo conversamos en la propuesta.</p></details>
-          <details><summary>¿Qué pasa después de la entrega?<span aria-hidden="true">+</span></summary><p>Te acompaño con ajustes y mantenimiento. Definimos en la propuesta qué soporte incluye tu proyecto y cómo continuar si necesitás nuevas funciones.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Contacto -->
-    <section class="section section--dark contact" id="contacto" aria-labelledby="contacto-titulo">
+    </section><section class="section section--neutral home-services" id="servicios" aria-labelledby="servicios-titulo"><div class="container"><p class="eyebrow">Qué puedo hacer por vos</p><h2 id="servicios-titulo" data-reveal>Tu próxima solución empieza acá.</h2><div class="services"><article class="card" data-reveal><p class="service-tag">Presencia digital</p><h3>Una web para tu negocio</h3><p>Sitios institucionales y catálogos que presentan lo que hacés y facilitan las consultas.</p><a class="service-link" href="#contacto" data-service="web">Quiero una web <span aria-hidden="true">↗</span></a></article><article class="card" data-reveal><p class="service-tag">Menos trabajo manual</p><h3>Automatizaciones a medida</h3><p>Planillas conectadas, documentos y correos automáticos con las herramientas que ya usás.</p><a class="service-link" href="#contacto" data-service="automatizacion">Quiero simplificar una tarea <span aria-hidden="true">↗</span></a></article></div></div></section><section class="section home-projects" id="proyectos" aria-labelledby="proyectos-titulo"><div class="container"><div class="home-section-heading"><div><p class="eyebrow">Trabajo que podés ver</p><h2 id="proyectos-titulo" data-reveal>De la idea a la práctica.</h2></div><a class="home-all-projects" href="proyectos.html">Ver todos los proyectos ↗</a></div><article class="home-featured"><a href="proyectos.html#casos" class="home-featured__image" aria-label="Ver el sistema de recibos de sueldo"><img src="assets/trabajos/sistema-recibos.jpg" alt="Panel de la demo del sistema de recibos de sueldo" width="963" height="1000" loading="lazy" decoding="async"></a><div><p class="eyebrow">Proyecto principal</p><h3>Sistema de recibos de sueldo</h3><p>Preparación de PDFs individuales, revisión de destinatarios y seguimiento de envíos para un colegio.</p><a href="proyectos.html#casos">Conocer el caso completo ↗</a></div></article><div class="home-webs"><a href="proyectos.html#trabajos-grilla"><img src="assets/trabajos/happybox.jpg" alt="" width="1360" height="900" loading="lazy"><span><strong>Happy Box</strong><small>Catálogo de regalos</small></span><span aria-hidden="true">↗</span></a><a href="proyectos.html#trabajos-grilla"><img src="assets/trabajos/nexmant.jpg" alt="" width="1360" height="900" loading="lazy"><span><strong>NexMant</strong><small>Sitio institucional</small></span><span aria-hidden="true">↗</span></a><a href="proyectos.html#trabajos-grilla"><img src="assets/trabajos/fretes-garcia.jpg" alt="" width="1360" height="900" loading="lazy"><span><strong>Fretes García</strong><small>Estudio contable</small></span><span aria-hidden="true">↗</span></a></div></div></section><section class="section home-process" id="como-trabajo" aria-labelledby="proceso-titulo"><div class="container"><p class="eyebrow">Cómo trabajo</p><h2 id="proceso-titulo" data-reveal>Trato directo. Un proceso claro.</h2><ol class="home-process-list"><li><span>01</span><h3>Charlamos</h3><p>Entiendo tu negocio y qué necesitás resolver.</p></li><li><span>02</span><h3>Definimos</h3><p>Acordamos alcance, precio y tiempos antes de empezar.</p></li><li><span>03</span><h3>Lo hacemos realidad</h3><p>Desarrollo, probamos juntos y definimos el soporte.</p></li></ol><p class="home-about">Solvo es mi emprendimiento de soluciones digitales. Trabajo desde Buenos Aires y me involucro personalmente en cada proyecto.</p><a class="home-faq-link" href="proyectos.html#preguntas">Preguntas frecuentes ↗</a></div></section><section class="section section--dark contact" id="contacto" aria-labelledby="contacto-titulo">
       <!-- Marca decorativa: contorno de las dos piezas de la S -->
       <svg class="contact__mark" viewBox="-10 -10 262 267" aria-hidden="true" focusable="false" data-reveal="mark">
         <path class="contact__piece contact__piece--a" d="M88 2H234Q242 2 240 10Q238 27 225 40L202 60Q190 69 173 69H86Q68 69 65 85Q62 96 72 106L124 157Q129 165 120 165H66Q48 165 36 153L15 132Q3 120 3 104V84Q3 65 17 51L58 11Q70 2 88 2Z"/>
         <path class="contact__piece contact__piece--b" d="M110 87H164Q178 87 188 102L214 125Q225 137 225 153V170Q225 186 213 198L176 235Q166 245 146 245H6Q0 245 0 239Q0 216 16 200Q33 184 53 184H142Q161 184 163 171Q164 161 155 152L103 99Q97 93 103 89Q105 87 110 87Z"/>
       </svg>
       <div class="container contact__inner">
-        <h2 id="contacto-titulo" data-reveal>¿Necesitás una web o querés simplificar una tarea de tu negocio?</h2>
+        <h2 id="contacto-titulo" data-reveal>Hablemos de tu próximo proyecto.</h2>
         <p class="lead" data-reveal style="--d: 1">Contame qué necesitás y vemos juntos cómo resolverlo. El diagnóstico inicial es gratis.</p>
         <p class="contact-choice" id="contact-choice" role="status" hidden></p>
         <div class="actions" data-reveal style="--d: 2">
@@ -445,11 +164,8 @@
           </a>
         </div>
       </div>
-    </section>
-  </main>
-
-  <!-- 7. Footer -->
-  <footer class="site-footer">
+    </section></main>
+<footer class="site-footer">
     <div class="container footer-inner">
       <p>Solvo. · Soluciones digitales a medida</p>
       <!-- El usuario de Instagram se toma de js/config.js -->

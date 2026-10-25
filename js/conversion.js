@@ -1,5 +1,10 @@
 (function () {
   "use strict";
+  // Conserva los enlaces compartidos antes de separar el portfolio del inicio.
+  if (document.body.classList.contains("home") && ["#casos", "#demo-titulo", "#herramientas-titulo", "#preguntas"].indexOf(window.location.hash) !== -1) {
+    window.location.replace("proyectos.html" + window.location.hash);
+    return;
+  }
   var config = window.SOLVO_CONFIG || {};
   // Punto de integración: los eventos solo se envían si existe una herramienta de medición conectada.
   function track(name, details) {
