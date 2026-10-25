@@ -80,10 +80,21 @@
   measure(); start();
 
   // Indicadores decorativos: no agregan texto ni altura a las tarjetas.
-  document.querySelectorAll(".home-services .card").forEach(function (card, index) {
+  document.querySelectorAll(".home-services .card:not(.offer)").forEach(function (card, index) {
     var symbol = document.createElement("span");
     symbol.className = "ambient-symbol ambient-symbol--" + index;
     symbol.setAttribute("aria-hidden", "true");
     card.appendChild(symbol);
   });
+  var offers = document.querySelectorAll(".offer");
+  if ("IntersectionObserver" in window) {
+    var offersObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle("offer-in-view", entry.isIntersecting);
+      });
+    });
+    offers.forEach(function (offer) { offersObserver.observe(offer); });
+  } else {
+    offers.forEach(function (offer) { offer.classList.add("offer-in-view"); });
+  }
 })();
