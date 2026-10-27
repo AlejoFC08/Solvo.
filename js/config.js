@@ -11,13 +11,13 @@ window.SOLVO_CONFIG = {
   foto: "", // Ruta local, por ejemplo assets/perfil.webp.
   // Número de WhatsApp con código de país, sin "+", espacios ni guiones.
   // Ejemplo para Argentina (celular): "5491112345678"
-  whatsapp: "[COMPLETAR]",
+  whatsapp: "5491165520810",
 
   // Mensaje que aparece precargado al abrir el chat de WhatsApp.
   whatsappMensaje: "Hola Solvo, quería hacerte una consulta.",
 
   // Tu mail de contacto. Ejemplo: "hola@solvo.com.ar"
-  email: "[COMPLETAR]",
+  email: "solvo.solucionesdigitales@gmail.com",
 
   // Tu usuario de Instagram, sin "@". Ejemplo: "solvo.ar"
   instagram: "[COMPLETAR]",
