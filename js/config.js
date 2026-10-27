@@ -14,7 +14,10 @@ window.SOLVO_CONFIG = {
   whatsapp: "5491165520810",
 
   // Mensaje que aparece precargado al abrir el chat de WhatsApp.
-  whatsappMensaje: "Hola Solvo, quería hacerte una consulta.",
+  whatsappMensaje: "Hola Solvo, quería contarte qué necesito para mi negocio.",
+
+  // ID de una propiedad real de Google Analytics 4. Vacío = sin seguimiento externo.
+  analyticsId: "",
 
   // Tu mail de contacto. Ejemplo: "hola@solvo.com.ar"
   email: "solvo.solucionesdigitales@gmail.com",

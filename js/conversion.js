@@ -6,6 +6,7 @@
     return;
   }
   var config = window.SOLVO_CONFIG || {};
+  var selectedService = "general";
   // Punto de integración: los eventos solo se envían si existe una herramienta de medición conectada.
   function track(name, details) {
     var payload = Object.assign({ event: name }, details || {});
@@ -34,19 +35,24 @@
   document.querySelectorAll("[data-service]").forEach(function (link) {
     link.addEventListener("click", function () {
       var service = link.getAttribute("data-service");
+      selectedService = service;
       var message = service === "web" ? "Hola Solvo, necesito una página web para mi negocio." : "Hola Solvo, quiero automatizar una tarea de mi negocio.";
       var choice = document.getElementById("contact-choice");
       if (choice) { choice.textContent = service === "web" ? "Hablemos de tu próxima web." : "Hablemos de la tarea que querés simplificar."; choice.hidden = false; }
-      document.querySelectorAll('[data-config="whatsapp"]').forEach(function (contact) {
+      document.querySelectorAll('#contacto [data-config="whatsapp"]').forEach(function (contact) {
         if (contact.hidden) return;
         var number = String(config.whatsapp || "").replace(/\D/g, "");
         if (number) contact.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
       });
+      var email = document.querySelector('#contacto [data-config="email"]');
+      if (email) email.href = "mailto:" + config.email + "?subject=" + encodeURIComponent(service === "web" ? "Consulta por desarrollo web · Solvo" : "Consulta por automatización · Solvo");
       track("solvo_service_select", { service: service });
     });
   });
   document.querySelectorAll("a[data-config]").forEach(function (link) {
-    link.addEventListener("click", function () { track("solvo_contact_click", { channel: link.getAttribute("data-config") }); });
+    link.addEventListener("click", function () {
+      track("solvo_contact_click", { channel: link.getAttribute("data-config"), service: link.closest("#contacto") ? selectedService : "general" });
+    });
   });
   var next = document.getElementById("demo-next");
   var step = 0;

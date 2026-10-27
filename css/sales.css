@@ -1,0 +1,22 @@
+.home .hero h1 { max-width:25ch; font-size:clamp(2rem,4.1vw,3.5rem); line-height:1.12; }
+.home .hero .lead { max-width:49ch; }
+.offer-scope { margin:-8px 0 20px; border-top:1px solid #e0e7f3; }
+.offer-scope summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; padding-block:10px; font-size:.75rem; font-weight:500; color:#385984; cursor:pointer; list-style:none; }
+.offer-scope summary::-webkit-details-marker { display:none; }
+.offer-scope summary > span { transition:transform .25s; }
+.offer-scope[open] summary > span { transform:rotate(45deg); }
+.offer-scope ul { list-style:none; display:grid; gap:8px; padding:6px 0 0; }
+.offer-scope li { font-size:.75rem; line-height:1.7; color:var(--texto-suave); padding-left:14px; position:relative; }
+.offer-scope li::before { content:"·"; position:absolute; left:0; color:#6c8fcd; }
+.home .offer-scope > p { font-size:.6875rem; line-height:1.7; color:var(--texto-suave); margin:12px 0; }
+.offer--automation .offer-scope { border-color:#ffffff26; }
+.offer--automation .offer-scope summary,.offer--automation .offer-scope li,.home .offer--automation .offer-scope > p { color:#c5d6f3; }
+.home .contact .btn--outline { min-width:0; overflow-wrap:anywhere; }
+.home .contact .btn--outline [data-config-text] { min-width:0; }
+.analytics-choice { position:fixed; z-index:100; left:16px; bottom:16px; width:min(430px,calc(100% - 32px)); padding:20px; border:1px solid #d7e1f0; border-radius:16px; background:#fff; color:#102344; box-shadow:0 12px 40px #10234422; }
+.analytics-choice p { font-size:.75rem; line-height:1.7; margin-bottom:12px; }
+.analytics-choice .actions { flex-direction:row; flex-wrap:wrap; gap:8px; }
+.analytics-choice button { font:inherit; font-size:.75rem; padding:10px 14px; border:1px solid #c6d4eb; border-radius:8px; background:#f5f8ff; color:#173969; cursor:pointer; }
+.analytics-choice button:first-child { background:#173969; border-color:#173969; color:#fff; }
+.analytics-preferences { margin-top:10px; padding:4px 0; background:none; border:0; color:inherit; font:inherit; font-size:.6875rem; text-decoration:underline; cursor:pointer; }
+@media(max-width:767px) { .home .hero h1 { font-size:clamp(1.65rem,7.6vw,2.65rem); letter-spacing:-.055em; } .home .hero .lead { font-size:.875rem; } }

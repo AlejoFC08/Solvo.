@@ -105,3 +105,33 @@ index.html: presentación, dos servicios, selección breve de proyectos, proceso
 proyectos.html: portfolio completo, sistema principal, demo interactiva, herramientas y preguntas frecuentes.
 css/layout.css: tamaños compactos del inicio y navegación entre páginas.
 Los enlaces antiguos a #casos, #demo-titulo, #herramientas-titulo y #preguntas desde el inicio se redirigen al portfolio.
+
+## Contacto y medición de consultas
+
+WhatsApp y correo reales están configurados. El botón de la portada abre una
+consulta general; las tarjetas permiten elegir un servicio y preparan un mensaje
+de WhatsApp y un asunto de correo específicos. No se envían mensajes automáticamente.
+
+La integración de GA4 está en `js/analytics.js`. `analyticsId` en config permanece
+vacío hasta disponer de una propiedad real. En ese estado no carga Google Analytics
+ni muestra el aviso de estadísticas. Para conectarla, crear una propiedad web en
+la cuenta del titular y cargar su ID G-…; ambas páginas ya incluyen el adaptador.
+Con un ID válido, el visitante decide si permite estadísticas. Puede cambiar su
+elección desde el pie de página. El adaptador limita los datos de los eventos a
+servicio, canal, nombre del proyecto o paso de demostración.
+
+Eventos de interés: selección de servicio y clic de contacto. **Un clic no equivale
+a una consulta recibida.** Para medir consultas reales, contabilizar las conversaciones
+nuevas efectivamente recibidas en WhatsApp o Gmail y registrar semanalmente:
+
+| Semana | Canal | Servicio | Consultas recibidas | Propuestas enviadas | Proyectos confirmados |
+| --- | --- | --- | --- | --- | --- |
+
+No sumar mensajes de prueba, seguimientos de la misma conversación ni clics sin
+mensaje. Preguntar de dónde llegó cada consulta cuando el origen no esté claro.
+Comparar estas cifras con los clics de Analytics; el sitio no accede a WhatsApp ni
+al buzón y no puede confirmar por su cuenta la recepción de una consulta.
+
+La publicación automática requiere resolver los despliegues que Netlify marca
+como `Skipped`. GitHub contiene los últimos cambios; no confundir un push correcto
+con que la web pública ya se haya actualizado.
