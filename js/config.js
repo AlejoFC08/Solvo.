@@ -20,7 +20,7 @@ window.SOLVO_CONFIG = {
   analyticsId: "",
 
   // Tu mail de contacto. Ejemplo: "hola@tudominio.com.ar"
-  email: "solvo.solucionesdigitales@gmail.com",
+  email: "solvik.digital@gmail.com",
 
   // Tu usuario de Instagram, sin "@". Ejemplo: "tu.usuario"
   instagram: "[COMPLETAR]",

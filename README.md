@@ -138,7 +138,7 @@ con que la web pública ya se haya actualizado.
 
 ## Marca Solvik
 
-La marca visible es Solvik. El correo solvo.solucionesdigitales@gmail.com y la
+La marca visible es Solvik. El correo solvik.digital@gmail.com y la
 URL solvo-ar.netlify.app siguen vigentes hasta configurar sus reemplazos reales.
 No se presupone disponibilidad ni registro de un dominio de Solvik.
 Los identificadores internos SOLVO_CONFIG y solvo_* se conservan por compatibilidad.
