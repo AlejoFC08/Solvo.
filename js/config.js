@@ -1,6 +1,6 @@
 /*
  * ============================================================
- *  CONFIGURACIÓN DE SOLVO — editá SOLO este archivo
+ *  CONFIGURACIÓN DE ENODO — editá SOLO este archivo
  * ============================================================
  *  Reemplazá cada "[COMPLETAR]" por el dato real y guardá.
  *  La página toma estos valores automáticamente.
@@ -14,15 +14,15 @@ window.SOLVO_CONFIG = {
   whatsapp: "5491165520810",
 
   // Mensaje que aparece precargado al abrir el chat de WhatsApp.
-  whatsappMensaje: "Hola Solvo, quería contarte qué necesito para mi negocio.",
+  whatsappMensaje: "Hola Enodo, quería contarte qué necesito para mi negocio.",
 
   // ID de una propiedad real de Google Analytics 4. Vacío = sin seguimiento externo.
   analyticsId: "",
 
-  // Tu mail de contacto. Ejemplo: "hola@solvo.com.ar"
+  // Tu mail de contacto. Ejemplo: "hola@tudominio.com.ar"
   email: "solvo.solucionesdigitales@gmail.com",
 
-  // Tu usuario de Instagram, sin "@". Ejemplo: "solvo.ar"
+  // Tu usuario de Instagram, sin "@". Ejemplo: "tu.usuario"
   instagram: "[COMPLETAR]",
 
   // Proyectos destacados. El primero se muestra con mayor protagonismo.

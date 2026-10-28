@@ -42,7 +42,7 @@
   panel = document.createElement("aside");
   panel.className = "analytics-choice";
   panel.setAttribute("aria-label", "Preferencias de estadísticas");
-  panel.innerHTML = '<p>¿Nos ayudás a mejorar Solvo? Podemos medir visitas y clics con Google Analytics. No incluimos el contenido de tu consulta ni tus datos de contacto.</p><div class="actions"><button type="button" data-choice="yes">Permitir estadísticas</button><button type="button" data-choice="no">Ahora no</button></div>';
+  panel.innerHTML = '<p>¿Nos ayudás a mejorar Enodo? Podemos medir visitas y clics con Google Analytics. No incluimos el contenido de tu consulta ni tus datos de contacto.</p><div class="actions"><button type="button" data-choice="yes">Permitir estadísticas</button><button type="button" data-choice="no">Ahora no</button></div>';
   panel.querySelectorAll("button").forEach(function (button) { button.addEventListener("click",function () { choose(button.getAttribute("data-choice")); }); });
   var stored = preference();
   panel.hidden = stored === "yes" || stored === "no";
