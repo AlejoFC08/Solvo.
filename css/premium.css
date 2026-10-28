@@ -1,4 +1,4 @@
-/* Dirección visual de Enodo: profundidad, contraste y movimiento contenido. */
+/* Dirección visual de Solvik: profundidad, contraste y movimiento contenido. */
 :root { --max: 1240px; --radio: 20px; --font-titulos: "Inter", system-ui, sans-serif; }
 ::selection { background: #bed2ff; color: #0c182b; }
 h1,h2,h3 { letter-spacing: -.045em; }

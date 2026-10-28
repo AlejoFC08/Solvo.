@@ -30,13 +30,13 @@
   if (photo && typeof config.foto === "string" && /^assets\/[a-zA-Z0-9_./-]+\.(webp|png|jpe?g)$/i.test(config.foto)) {
     photo.addEventListener("load", function () { photo.hidden = false; });
     photo.src = config.foto;
-    photo.alt = config.nombre ? "Retrato de " + config.nombre : "La persona detrás de Enodo";
+    photo.alt = config.nombre ? "Retrato de " + config.nombre : "La persona detrás de Solvik";
   }
   document.querySelectorAll("[data-service]").forEach(function (link) {
     link.addEventListener("click", function () {
       var service = link.getAttribute("data-service");
       selectedService = service;
-      var message = service === "web" ? "Hola Enodo, necesito una página web para mi negocio." : "Hola Enodo, quiero automatizar una tarea de mi negocio.";
+      var message = service === "web" ? "Hola Solvik, necesito una página web para mi negocio." : "Hola Solvik, quiero automatizar una tarea de mi negocio.";
       var choice = document.getElementById("contact-choice");
       if (choice) { choice.textContent = service === "web" ? "Hablemos de tu próxima web." : "Hablemos de la tarea que querés simplificar."; choice.hidden = false; }
       document.querySelectorAll('#contacto [data-config="whatsapp"]').forEach(function (contact) {
@@ -45,7 +45,7 @@
         if (number) contact.href = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
       });
       var email = document.querySelector('#contacto [data-config="email"]');
-      if (email) email.href = "mailto:" + config.email + "?subject=" + encodeURIComponent(service === "web" ? "Consulta por desarrollo web · Enodo" : "Consulta por automatización · Enodo");
+      if (email) email.href = "mailto:" + config.email + "?subject=" + encodeURIComponent(service === "web" ? "Consulta por desarrollo web · Solvik" : "Consulta por automatización · Solvik");
       track("solvo_service_select", { service: service });
     });
   });

@@ -1,6 +1,6 @@
 /*
  * ============================================================
- *  CONFIGURACIÓN DE ENODO — editá SOLO este archivo
+ *  CONFIGURACIÓN DE SOLVIK — editá SOLO este archivo
  * ============================================================
  *  Reemplazá cada "[COMPLETAR]" por el dato real y guardá.
  *  La página toma estos valores automáticamente.
@@ -14,7 +14,7 @@ window.SOLVO_CONFIG = {
   whatsapp: "5491165520810",
 
   // Mensaje que aparece precargado al abrir el chat de WhatsApp.
-  whatsappMensaje: "Hola Enodo, quería contarte qué necesito para mi negocio.",
+  whatsappMensaje: "Hola Solvik, quería contarte qué necesito para mi negocio.",
 
   // ID de una propiedad real de Google Analytics 4. Vacío = sin seguimiento externo.
   analyticsId: "",

@@ -1,4 +1,4 @@
-# Enodo. — sitio web
+# Solvik. — sitio web
 
 Sitio en HTML, CSS y JavaScript, sin frameworks ni build. El inicio es breve y el portfolio completo vive en proyectos.html.
 
@@ -136,9 +136,9 @@ La publicación automática requiere resolver los despliegues que Netlify marca
 como `Skipped`. GitHub contiene los últimos cambios; no confundir un push correcto
 con que la web pública ya se haya actualizado.
 
-## Marca Enodo
+## Marca Solvik
 
-La marca visible es Enodo. El correo solvo.solucionesdigitales@gmail.com y la
+La marca visible es Solvik. El correo solvo.solucionesdigitales@gmail.com y la
 URL solvo-ar.netlify.app siguen vigentes hasta configurar sus reemplazos reales.
-No se presupone disponibilidad ni registro de un dominio de Enodo.
+No se presupone disponibilidad ni registro de un dominio de Solvik.
 Los identificadores internos SOLVO_CONFIG y solvo_* se conservan por compatibilidad.
