@@ -10,6 +10,7 @@
 .home-projects .home-all-projects { color:#FFFFFF; padding:12px 16px; border:1px solid #ffffff40; border-radius:10px; text-decoration:none; }
 .home-projects .home-all-projects:hover { background:#ffffff12; border-color:#a2beef; }
 .home-projects .home-featured { background:#FFFFFF; border-color:#FFFFFF; color:#0C182B; }
+.home-projects .home-featured::before { content:none; display:none; }
 .home-projects .home-featured h3 { color:#0C182B; }
 .home-projects .home-featured p:not(.eyebrow) { color:#4f5f76; }
 .home-projects .home-featured .eyebrow,.home-projects .home-featured > div > a { color:#083DBE; }
